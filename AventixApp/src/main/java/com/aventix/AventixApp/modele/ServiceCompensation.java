@@ -76,6 +76,10 @@ public class ServiceCompensation extends TimerTask {
             message.saveChanges();
             tr.sendMessage(message,message.getAllRecipients());
             tr.close();
+            for (int i=0;i<listeTransaction.size();i++) {
+                listeTransaction.get(i).setStatut(true);
+                services.miseAJourTransa(listeTransaction.get(i));
+            }
         } catch (MessagingException ex) {
             Logger.getLogger(ServiceCompensation.class.getName()).log(Level.SEVERE, null, ex);
         }
