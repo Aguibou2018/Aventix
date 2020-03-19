@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,27 +38,31 @@
         <div class="col-md-5 col-lg-6 col-xl-4 px-lg-5 d-flex align-items-center">
           <div class="w-100 py-5">
             <div class="text-center"><img src="img/brand/Aventix_logo.jpg" alt="..." style="max-width: 6rem;" class="img-fluid mb-4">
+                <h4>Vous etes ${statut}</h4>
               <h1 class="display-4 mb-3">Se Connecter</h1>
             </div>
-            <form method="post" class="form-validate">
+            <form:form action="/connexion" modelAttribute="connexion" class="form-validate">
               <div class="form-group">
                 <label>Email </label>
-                <input name="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email" class="form-control">
+                <form:input path="email" type="email" id = "email" name = "email" placeholder="name@address.com" autocomplete="off" required="required" data-msg="S'il vous plait entrez votre email" class="form-control"/>
               </div>
               <div class="form-group mb-4">
                 <div class="row">
                   <div class="col">
                     <label>Mot de passe </label>
                   </div>
-                  <div class="col-auto"><a href="#" class="form-text small text-muted">vous avez oubliez votre mot de passe?</a></div>
+                  <div class="col-auto"><a href="#" class="form-text small text-muted">Mot de passe oublie</a></div>
                 </div>
-                <input name="loginPassword" placeholder="Password" type="password" required data-msg="Please enter your password" class="form-control">
+                <form:input path="password" placeholder="Password" type="password" id = "password" name = "password" required="required" data-msg="Entrez votre mot de passe" class="form-control"/>
               </div>
+              	<div class="form-group row">
+					<form:input type="hidden" path="statut" value="${statut}" />	     
+				</div>
               <!-- Submit-->
               <button class="btn btn-lg btn-block btn-primary mb-3">Se Connecter</button>
               <!-- Link-->
-              <p class="text-center"><small class="text-muted text-center">Vous n'avez pas encore de compte? <a href="register-2.html">Rejoignez-nous</a>.</small></p>
-            </form>
+              <p class="text-center"><small class="text-muted text-center">Vous n'avez pas encore de compte? si vous etes un commercant <a href="/register-commercant">Rejoignez-nous en cliquant ici</a> et si vous etes une entreprise <a href="/register-employeur">Rejoignez-nous en cliquant ici</a>.</small></p>
+            </form:form>
           </div>
         </div>
         <div class="col-12 col-md-7 col-lg-6 col-xl-8 d-none d-lg-block">

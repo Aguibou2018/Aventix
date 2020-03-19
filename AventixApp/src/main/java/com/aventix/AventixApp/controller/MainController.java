@@ -5,24 +5,28 @@
  */
 package com.aventix.AventixApp.controller;
  
+import com.aventix.AventixApp.form.LoginForm;
 import com.aventix.AventixApp.modele.Carte;
 import com.aventix.AventixApp.modele.Commercant;
 import com.aventix.AventixApp.modele.Employe;
 import com.aventix.AventixApp.modele.Entreprise;
 import com.aventix.AventixApp.modele.Transa;
 import com.aventix.AventixApp.services.ServicesImpl;
+import java.util.List;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
  
 @Controller
 public class MainController {
     
     ServicesImpl services = new ServicesImpl();
  
-    @RequestMapping(value = { "/indexEmploye" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String index(Model model) {
         
         Entreprise entreprise = new Entreprise("Sodebo", "sodebo@miam.fr", "guest15", "20 avenue Albert Einstein", "0405070908");
@@ -62,8 +66,45 @@ public class MainController {
         return "indexEmploye";
     }
     
-    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
-    public String login() {
-        return "login-2";
+    @RequestMapping(value="/login", method = RequestMethod.GET)
+    public String login(Model model, @RequestParam(value="statut") String statut ) {
+    	
+    	model.addAttribute("statut", statut); //permet d'envoyer des variables dans jsp
+    	model.addAttribute("connexion", new LoginForm());
+    	
+        return "login";
+    }
+    
+    @RequestMapping(value="/connexion", method = RequestMethod.POST)
+    public String Connexion(Model model, @Valid LoginForm connexion) {    	
+        switch (connexion.getStatut()) {
+            case "employeur":
+                List<Entreprise> entreprise = services.findEntrepriseByEmail(connexion.getEmail());
+                if (!entreprise.get(0).getNomEntreprise().isEmpty()) {
+                    if (entreprise.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        return "indexEmployeur";
+                    }
+                }
+                break;
+            case "employe":
+                List<Employe> employe = services.findEmployeByEmail(connexion.getEmail());
+                if (!employe.get(0).getNom().isEmpty()) {
+                    if (employe.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        return "indexEmploye";
+                    }
+                }
+                break;
+            case "commercant":
+                List<Commercant> commercant = services.findCommercantByEmail(connexion.getEmail());
+                if (!commercant.get(0).getNomCommercant().isEmpty()) {
+                    if (commercant.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        return "indexCommercant";
+                    }
+                }
+                break;
+            default:
+                return "index";
+        }
+        return null;
     }
 }

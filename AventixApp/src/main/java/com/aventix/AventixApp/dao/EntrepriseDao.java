@@ -47,14 +47,18 @@ public class EntrepriseDao {
         return em.find(Entreprise.class, idEntreprise);
     }
     
-    public Entreprise findEntrepriseByNom(String nomEntreprise){
+    public List<Entreprise> findEntrepriseByNom(String nomEntreprise){
         EntityManager em = JpaUtil.getEntityManager();
-        return em.find(Entreprise.class, nomEntreprise);
+        Query query = em.createQuery("select e from Entreprise as e where e.nomEntreprise=:nomEntreprise").setParameter("nomEntreprise", nomEntreprise);
+        List<Entreprise> liste = query.getResultList();
+        return liste;
     }
     
-    public Entreprise findEntrepriseByEmail(String email){
+    public List<Entreprise> findEntrepriseByEmail(String email){
         EntityManager em = JpaUtil.getEntityManager();
-        return em.find(Entreprise.class, email);
+        Query query = em.createQuery("select e from Entreprise as e where e.email=:email").setParameter("email", email);
+        List<Entreprise> liste = query.getResultList();
+        return liste;
     }
     
 /*--------------------------FIN FINDERS ENTREPRISES---------------------------*/

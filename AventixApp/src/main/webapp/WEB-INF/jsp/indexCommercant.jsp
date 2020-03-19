@@ -38,27 +38,22 @@
         <!-- Sidebar Header    -->
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
-          <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">Vivian WONG</h2><span>Employé</span>
+          <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-1.png" alt="Entreprise" class="img-fluid rounded-circle"></a>
+            <h2 class="h5">Boulangerie INSA </h2><span>Commercant</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="indexEmploye.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="indexCommercant.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="indexEmploye.html"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="card-employe.html"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="listeTransactionsEmploye.html"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
-            <li><a href="#chartsDropdown"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
-            <li><a href="maps-employe.html"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="contact.html"> <i class="fa fa-phone"></i>Contact </a> </li>
-
-            <li><a href="faq.html"><i class="fa fa-question-circle"></i>Faq </a>
-            </li>
+            <li><a href="indexCommercant.html"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="listeTransactionsCommercant.html"><i class="fa fa-credit-card"></i>Liste des transactions</a></li>
+            <li><a href="contactCommercant.html"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li><a href="faqCommercant.html"><i class="fa fa-question-circle"></i>Faq </a></li>
+          </ul>
         </div>
-        
       </div>
     </nav>
     <div class="page">
@@ -67,7 +62,7 @@
         <nav class="navbar">
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
-              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="indexEmploye.html" class="navbar-brand">
+              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="indexCommercant.html" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
@@ -83,77 +78,56 @@
           </div>
         </nav>
       </header>
-     
-
-      <!-- Statistics Section-->
+      <!-- Counts Section -->
       <section class="statistics" >
         <div class="container-fluid" style="margin-top: 20px;">
           <div class="row d-flex">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <!-- Income-->
               <div class="card income text-center">
-                <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">19,00</div><strong class="text-primary">Solde</strong>
-                <p>Utilisable ce jour </p>
+                <h2 class="display h4">Compensation </h2>
+                <div class="icon"><i class="fa fa-paypal"></i></div>
+                <div class="number">13</div><strong class="text-primary">Virement</strong>
+                <p>En attente </p>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <!-- Monthly Usage-->
-              <div class="card data-usage">
-                <h2 class="display h4">Solde Carte</h2>
-                <div class="row d-flex align-items-center">
-                  <div class="col-sm-6">
-                    <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
-                  </div>
-                  <div class="col-sm-6"><strong class="text-primary"> </i></strong><small>Plan actuel</small><span>210 euros par mois</span></div>
-                </div>
-                <p>Votre solde carte.</p>
+              <div class="card income text-center">
+                <h2 class="display h4">Transaction</h2>
+                <div class="icon"><i class="fa fa-credit-card"></i></div>
+                <div class="number">180</div><strong class="text-primary">Paiement </strong>
+                <p>en attente et déjà effectuée </p>
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-              <div class="card user-activity">
-                <h2 class="display h4">Vos Visites</h2>
-                <div class="number">250</div>
-                <h3 class="h4 display"> </h3>
-                <div class="progress">
-                  <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
-                </div>
-                <div class="page-statistics d-flex justify-content-between">
-                  <div class="page-statistics-left"><span> Visite Restaurant </span><strong>230</strong></div>
-                  <div class="page-statistics-right"><span>Nouvelles Visites</span><strong>73.4%</strong></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
        <!-- Counts Section -->
         <section >
         <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+           <div class="col-md-4">
+              <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
+                <div class="card-img-overlay card-img-overlay-opacity">
+                  <h5 class="card-title text-white"> ticket restaurant</h5>
+                  <p class="card-text">Aventix.. toujours à votre service.</p>
+                  <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
+                <div class="card-img-overlay card-img-overlay-opacity">
+                  <h5 class="card-title text-white"> ticket restaurant</h5>
+                  <p class="card-text">Aventix.. toujours à votre service.</p>
+                  <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+                </div>
+              </div>
+            </div>
+         </div>
+       </div>
        </section>
       
       <footer class="main-footer">

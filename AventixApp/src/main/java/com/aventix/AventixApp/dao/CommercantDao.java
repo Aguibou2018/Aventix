@@ -47,14 +47,18 @@ public class CommercantDao {
         return em.find(Commercant.class, idCommercant);
     }
     
-    public Commercant findCommercantByNom(String nomCommercant){
+    public List<Commercant> findCommercantByNom(String nomCommercant){
         EntityManager em = JpaUtil.getEntityManager();
-        return em.find(Commercant.class, nomCommercant);
+        Query query = em.createQuery("select c from Commercant as c where c.nomCommercant=:nomCommercant").setParameter("nomCommercant", nomCommercant);
+        List<Commercant> liste = query.getResultList();
+        return liste;
     }
     
-    public Commercant findCommercantByEmail(String email){
+    public List<Commercant> findCommercantByEmail(String email){
         EntityManager em = JpaUtil.getEntityManager();
-        return em.find(Commercant.class, email);
+        Query query = em.createQuery("select c from Commercant as c where c.email=:email").setParameter("email", email);
+        List<Commercant> liste = query.getResultList();
+        return liste;
     }
     
 /*--------------------------FIN FINDERS COMMERCANTS---------------------------*/

@@ -14,8 +14,8 @@ public interface ServicesCommercant {
     public void dereferencerCommercant(Commercant c);
     public void miseAJourCommercant(Commercant c);
     public List<Commercant> findAllCommercants();
-    public Commercant findCommercantByNom(String nomCommercant);
-    public Commercant findCommercantByEmail(String email);
+    public List<Commercant> findCommercantByNom(String nomCommercant);
+    public List<Commercant> findCommercantByEmail(String email);
     public Commercant findCommercantById(Long idCommercant);
 }
 

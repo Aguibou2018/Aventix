@@ -249,8 +249,8 @@ public class Employe implements Serializable {
     //Verification password
     public boolean verifLogin(String email, String password) {
         ServicesImpl services = new ServicesImpl();
-        Employe e = services.findEmployeByEmail(this.email);
-        return (e.password.equals(password));
+        List<Employe> e = services.findEmployeByEmail(this.email);
+        return (e.get(0).password.equals(password));
     }
     
     //Mot de passe oublie

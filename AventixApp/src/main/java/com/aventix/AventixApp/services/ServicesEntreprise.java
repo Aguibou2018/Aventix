@@ -14,8 +14,8 @@ public interface ServicesEntreprise {
     public void dereferencerEntreprise(Entreprise e);
     public void miseAJourEntreprise(Entreprise e);
     public List<Entreprise> findAllEntreprises();
-    public Entreprise findEntrepriseByNom(String nomEntreprise);
-    public Entreprise findEntrepriseByEmail(String email);
+    public List<Entreprise> findEntrepriseByNom(String nomEntreprise);
+    public List<Entreprise> findEntrepriseByEmail(String email);
     public Entreprise findEntrepriseById(Long idEntreprise);
 }
 

@@ -129,8 +129,8 @@ public class Commercant implements Serializable {
     //Verification password
     public boolean verifLogin(String email, String password) {
         ServicesImpl services = new ServicesImpl();
-        Commercant c = services.findCommercantByEmail(this.getEmail());    
-        return (c.getPassword().equals(password));
+        List<Commercant> c = services.findCommercantByEmail(this.getEmail());    
+        return (c.get(0).getPassword().equals(password));
     }
     
     //Afficher l'historique des transactions

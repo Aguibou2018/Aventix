@@ -18,7 +18,7 @@ public interface ServicesEmploye {
     public List<Employe> findEmployeByNom(String nom);
     public List<Employe> findEmployeByEntreprise(Long idEntreprise);
     public Employe findEmployeByIdCarte(Long idCarte);
-    public Employe findEmployeByEmail(String email);
+    public List<Employe> findEmployeByEmail(String email);
     public Employe findEmployeById(Long idEmploye);
 }
 

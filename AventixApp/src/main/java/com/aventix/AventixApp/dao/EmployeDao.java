@@ -73,9 +73,11 @@ public class EmployeDao {
         return em.find(Employe.class, idCarte);
     }
     
-    public Employe findEmployeByEmail(String email){
+    public List<Employe> findEmployeByEmail(String email){
         EntityManager em = JpaUtil.getEntityManager();
-        return em.find(Employe.class, email);
+        Query query = em.createQuery("select e from Employe as e where e.email=:email").setParameter("email", email);
+        List<Employe> liste = query.getResultList();
+        return liste;
     }
     
 /*---------------------------FIN FINDERS EMPLOYES-----------------------------*/

@@ -181,8 +181,8 @@ public class Entreprise implements Serializable {
     //Verification password
     public boolean verifLogin(String email, String password) {
         ServicesImpl services = new ServicesImpl();
-        Entreprise e = services.findEntrepriseByEmail(this.getEmail());    
-        return (e.getPassword().equals(password));
+        List<Entreprise> e = services.findEntrepriseByEmail(this.getEmail());    
+        return (e.get(0).getPassword().equals(password));
     }
     
     //Ajout d'un nouvel employe

@@ -76,12 +76,12 @@ public class ServicesImpl implements ServicesEmploye, ServicesEntreprise, Servic
         return dao.findAllEntreprises();
     }
     
-    public Entreprise findEntrepriseByNom(String nomEntreprise) {
+    public List<Entreprise> findEntrepriseByNom(String nomEntreprise) {
         EntrepriseDao dao = new EntrepriseDao();
         return dao.findEntrepriseByNom(nomEntreprise);
     }
     
-    public Entreprise findEntrepriseByEmail(String email) {
+    public List<Entreprise> findEntrepriseByEmail(String email) {
         EntrepriseDao dao = new EntrepriseDao();
         return dao.findEntrepriseByEmail(email);
     }
@@ -174,7 +174,7 @@ public class ServicesImpl implements ServicesEmploye, ServicesEntreprise, Servic
         return dao.findEmployeByIdCarte(idCarte);
     }
     
-    public Employe findEmployeByEmail(String email) {
+    public List<Employe> findEmployeByEmail(String email) {
         EmployeDao dao = new EmployeDao();
         return dao.findEmployeByEmail(email);
     }
@@ -247,12 +247,12 @@ public class ServicesImpl implements ServicesEmploye, ServicesEntreprise, Servic
         return dao.findAllCommercants();
     }
     
-    public Commercant findCommercantByNom(String nomCommercant) {
+    public List<Commercant> findCommercantByNom(String nomCommercant) {
         CommercantDao dao = new CommercantDao();
         return dao.findCommercantByNom(nomCommercant);
     }
     
-    public Commercant findCommercantByEmail(String email) {
+    public List<Commercant> findCommercantByEmail(String email) {
         CommercantDao dao = new CommercantDao();
         return dao.findCommercantByEmail(email);
     }
