@@ -39,7 +39,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">Vivian WONG</h2><span>Employé</span>
+              <h2 class="h5">${sessionScope['scopedTarget.sessionBean'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBean'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="indexEmploye.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
@@ -93,7 +93,7 @@
               <!-- Income-->
               <div class="card income text-center">
                 <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">19,00</div><strong class="text-primary">Solde</strong>
+                <div class="number">${sessionScope['scopedTarget.sessionBean'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBean'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
                 <p>Utilisable ce jour </p>
               </div>
             </div>

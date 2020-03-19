@@ -76,6 +76,13 @@ public class TransaDao {
         return liste;
     }
     
+    public List<Transa> findTransaByIdCarteAndDate(Long idCarte, Date dateTransa) {
+        EntityManager em = JpaUtil.getEntityManager();
+        Query query = em.createQuery("select t from Transa as t where t.idCarte=:idCarte and t.dateTransa=:dateTransa").setParameter("idCarte", idCarte).setParameter("dateTransa", dateTransa);
+        List<Transa> liste = query.getResultList();
+        return liste;
+    }
+    
 /*--------------------------FIN FINDERS TRANSACTIONS--------------------------*/
     
 }

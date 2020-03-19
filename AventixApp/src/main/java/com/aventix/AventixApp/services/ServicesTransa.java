@@ -20,6 +20,7 @@ public interface ServicesTransa {
     public List<Transa> findTransaByIdCommercant(Long idCommercant);
     public List<Transa> findTransaByStatut(boolean statut);
     public Transa findTransaById(Long idTransa);
+    public List<Transa> findTransaByIdCarteAndDate(Long idCarte, Date dateTransa);
 }
 
                     /*Fin Interface Services Transa*/

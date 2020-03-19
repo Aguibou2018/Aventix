@@ -21,6 +21,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import com.aventix.AventixApp.services.ServicesImpl;
+import java.util.Date;
 
 /*--------------------------------FIN IMPORTS---------------------------------*/
 
@@ -283,6 +284,17 @@ public class Employe implements Serializable {
         message.saveChanges();
         tr.sendMessage(message,message.getAllRecipients());
         tr.close();
+    }
+    
+    //Recupere le montant depense dans la journee
+    public float montantDepenseJournee() {
+        ServicesImpl services = new ServicesImpl();
+        List<Transa> transactionsDuJour = services.findTransaByIdCarteAndDate(this.getCarte().getId(), new Date());
+        float montantDepense = 0;
+        for (int i=0;i<transactionsDuJour.size();i++) {
+            montantDepense += transactionsDuJour.get(i).getMontant();
+        }
+        return montantDepense;
     }
 
 /*---------------------------------Surcharges---------------------------------*/
