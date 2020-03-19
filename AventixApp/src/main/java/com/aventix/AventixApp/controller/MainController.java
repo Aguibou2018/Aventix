@@ -12,8 +12,11 @@ import com.aventix.AventixApp.modele.Employe;
 import com.aventix.AventixApp.modele.Entreprise;
 import com.aventix.AventixApp.modele.Transa;
 import com.aventix.AventixApp.services.ServicesImpl;
+import com.aventix.AventixApp.session.SessionBean;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,10 +27,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
     
+    @Autowired
+    private SessionBean sessionBean;
+    
     ServicesImpl services = new ServicesImpl();
  
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
-    public String index(Model model) {
+    public String home(Model model) {
         
         Entreprise entreprise = new Entreprise("Sodebo", "sodebo@miam.fr", "guest15", "20 avenue Albert Einstein", "0405070908");
         services.referencerEntreprise(entreprise);
@@ -54,15 +60,6 @@ public class MainController {
         Transa t2 = new Transa(c1.getId(), c3.getId(), 11);
         services.referencerTransa(t1);
         services.referencerTransa(t2);
-        /*
-        String nom = services.findEmployeById(e.getId()).getNom();
-        String prenom = services.findEmployeById(e.getId()).getPrenom();
-        String statut = services.findEmployeById(e.getId()).getClass().getName().replaceFirst("com.aventix.AventixApp.modele.", "");
- 
-        model.addAttribute("nom", nom);
-        model.addAttribute("prenom", prenom);
-        model.addAttribute("statut", statut);
- */
         return "indexEmploye";
     }
     
@@ -76,12 +73,14 @@ public class MainController {
     }
     
     @RequestMapping(value="/connexion", method = RequestMethod.POST)
-    public String Connexion(Model model, @Valid LoginForm connexion) {    	
+    public String Connexion(Model model, @Valid LoginForm connexion, HttpSession session) {    	
         switch (connexion.getStatut()) {
             case "employeur":
                 List<Entreprise> entreprise = services.findEntrepriseByEmail(connexion.getEmail());
                 if (!entreprise.get(0).getNomEntreprise().isEmpty()) {
                     if (entreprise.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        sessionBean.setEntreprise(entreprise.get(0));
+                        session.setAttribute("sessionBean", sessionBean);
                         return "indexEmployeur";
                     }
                 }
@@ -90,6 +89,8 @@ public class MainController {
                 List<Employe> employe = services.findEmployeByEmail(connexion.getEmail());
                 if (!employe.get(0).getNom().isEmpty()) {
                     if (employe.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        sessionBean.setEmploye(employe.get(0));
+                        session.setAttribute("sessionBean", sessionBean);
                         return "indexEmploye";
                     }
                 }
@@ -98,6 +99,8 @@ public class MainController {
                 List<Commercant> commercant = services.findCommercantByEmail(connexion.getEmail());
                 if (!commercant.get(0).getNomCommercant().isEmpty()) {
                     if (commercant.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
+                        sessionBean.setCommercant(commercant.get(0));
+                        session.setAttribute("sessionBean", sessionBean);
                         return "indexCommercant";
                     }
                 }
@@ -107,4 +110,16 @@ public class MainController {
         }
         return null;
     }
+    
+    /*@RequestMapping(value = { "/indexEmploye" }, method = RequestMethod.GET)
+    public String indexEmploye(Model model) {
+        String nom = services.findEmployeById(e.getId()).getNom();
+        String prenom = services.findEmployeById(e.getId()).getPrenom();
+        String statut = services.findEmployeById(e.getId()).getClass().getName().replaceFirst("com.aventix.AventixApp.modele.", "");
+ 
+        model.addAttribute("nom", nom);
+        model.addAttribute("prenom", prenom);
+        model.addAttribute("statut", statut);
+        return "indexEmploye";
+    }*/
 }
