@@ -39,7 +39,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/logo-sncf.jpg" alt="Entreprise" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">SNCF </h2><span>Entreprise</span>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="indexEmployeur.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
@@ -100,7 +100,7 @@
               <div class="card income text-center">
               	<h2 class="display h4">Employés inscrits</h2>
                 <div class="icon"><i class="icon-user"></i></div>
-                <div class="number">180</div>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreEmploye()}</div>
               </div>
             </div>
             <div class="col-lg-4">
@@ -108,7 +108,7 @@
               <div class="card income text-center">
               	<h2 class="display h4">Nombre de Carte</h2>
                 <div class="icon"><i class="fa fa-id-card-o"></i></div>
-                <div class="number">180</div>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCarte()}</div>
               </div>
             </div>
             <div class="col-lg-4">
@@ -116,7 +116,7 @@
             <div class="card income text-center">
               	<h2 class="display h4"> Nombre de Commandes</h2>
                 <div class="icon"><i class="icon-bill"></i></div>
-                <div class="number">2</div>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCommande()}</div>
               </div>
             </div>        
         </div>

@@ -39,7 +39,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-1.png" alt="Entreprise" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">Boulangerie INSA </h2><span>Commercant</span>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant()}</h2><span>Commercant</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="indexCommercant.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>

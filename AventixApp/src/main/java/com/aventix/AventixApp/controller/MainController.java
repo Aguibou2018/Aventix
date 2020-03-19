@@ -12,14 +12,15 @@ import com.aventix.AventixApp.modele.Employe;
 import com.aventix.AventixApp.modele.Entreprise;
 import com.aventix.AventixApp.modele.Transa;
 import com.aventix.AventixApp.services.ServicesImpl;
-import com.aventix.AventixApp.session.SessionBean;
+import com.aventix.AventixApp.session.SessionBeanCommercant;
+import com.aventix.AventixApp.session.SessionBeanEmploye;
+import com.aventix.AventixApp.session.SessionBeanEntreprise;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
     
     @Autowired
-    private SessionBean sessionBean;
+    private SessionBeanEmploye sessionBeanEmploye;
+    @Autowired
+    private SessionBeanEntreprise sessionBeanEntreprise;
+    @Autowired
+    private SessionBeanCommercant sessionBeanCommercant;
     
     ServicesImpl services = new ServicesImpl();
  
@@ -75,13 +80,13 @@ public class MainController {
     @RequestMapping(value="/connexion", method = RequestMethod.POST)
     public String Connexion(Model model, @Valid LoginForm connexion, HttpSession session) {    	
         switch (connexion.getStatut()) {
-            case "employeur":
+            case "entreprise":
                 List<Entreprise> entreprise = services.findEntrepriseByEmail(connexion.getEmail());
                 if (!entreprise.get(0).getNomEntreprise().isEmpty()) {
                     if (entreprise.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
-                        sessionBean.setEntreprise(entreprise.get(0));
-                        session.setAttribute("sessionBean", sessionBean);
-                        return "indexEmployeur";
+                        sessionBeanEntreprise.setEntreprise(entreprise.get(0));
+                        session.setAttribute("sessionBean", sessionBeanEntreprise);
+                        return "indexEntreprise";
                     }
                 }
                 break;
@@ -89,8 +94,8 @@ public class MainController {
                 List<Employe> employe = services.findEmployeByEmail(connexion.getEmail());
                 if (!employe.get(0).getNom().isEmpty()) {
                     if (employe.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
-                        sessionBean.setEmploye(employe.get(0));
-                        session.setAttribute("sessionBean", sessionBean);
+                        sessionBeanEmploye.setEmploye(employe.get(0));
+                        session.setAttribute("sessionBean", sessionBeanEmploye);
                         return "indexEmploye";
                     }
                 }
@@ -99,8 +104,8 @@ public class MainController {
                 List<Commercant> commercant = services.findCommercantByEmail(connexion.getEmail());
                 if (!commercant.get(0).getNomCommercant().isEmpty()) {
                     if (commercant.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
-                        sessionBean.setCommercant(commercant.get(0));
-                        session.setAttribute("sessionBean", sessionBean);
+                        sessionBeanCommercant.setCommercant(commercant.get(0));
+                        session.setAttribute("sessionBean", sessionBeanCommercant);
                         return "indexCommercant";
                     }
                 }
@@ -108,7 +113,7 @@ public class MainController {
             default:
                 return "index";
         }
-        return null;
+        return "login";
     }
     
     /*@RequestMapping(value = { "/indexEmploye" }, method = RequestMethod.GET)

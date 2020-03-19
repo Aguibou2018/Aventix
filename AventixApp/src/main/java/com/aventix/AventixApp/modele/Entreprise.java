@@ -96,6 +96,14 @@ public class Entreprise implements Serializable {
         return telephone;
     }
     
+    public Collection<Commande> getCommandes() {
+        return commandes;
+    }
+    
+    public Collection<Employe> getEmployes() {
+        return employes;
+    }
+    
 /*----------------------------------Setters-----------------------------------*/
     
     public void setNomEntreprise(String nomEntreprise) {
@@ -116,6 +124,14 @@ public class Entreprise implements Serializable {
     
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+    
+    public void setCommandes(Collection<Commande> commandes) {
+        this.commandes = commandes;
+    }
+    
+    public void setEmployes(Collection<Employe> employe) {
+        this.employes = employes;
     }
     
 /*-----------------------------------Others-----------------------------------*/
@@ -244,6 +260,30 @@ public class Entreprise implements Serializable {
     public List<Carte> listeCartes() {
         ServicesImpl services = new ServicesImpl();
         return services.findCarteByIdEntreprise(this.getId());
+    }
+    
+    //Recupere le nombre d'employe inscrit
+    public int nombreEmploye() {
+        ServicesImpl services = new ServicesImpl();
+        List<Employe> listeemployes = services.findEmployeByIdEntreprise(this.getId());
+        int  nombreInscrit = listeemployes.size();
+        return nombreInscrit;
+    }
+    
+    //Recupere le nombre de commande
+    public int nombreCommande() {
+        ServicesImpl services = new ServicesImpl();
+        List<Commande> listecommandes = services.findCommandeByIdEntreprise(this.getId());
+        int nombreCommandes = listecommandes.size();
+        return nombreCommandes;
+    }
+    
+    //Recupere le nombre de cartes
+    public int nombreCarte() {
+        ServicesImpl services = new ServicesImpl();
+        List<Carte> cartes = services.findCarteByIdEntreprise(this.getId());
+        int nombreCartes = cartes.size();
+        return nombreCartes;
     }
 
 /*---------------------------------Surcharges---------------------------------*/

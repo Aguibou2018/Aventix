@@ -57,7 +57,7 @@ public class CommandeDao {
     
     public List<Commande> findCommandeByIdEntreprise(Long idEntreprise){
         EntityManager em = JpaUtil.getEntityManager();
-        Query query = em.createQuery("select c from Commande as c where c.idEntreprise=:idEntreprise").setParameter("idEntreprise", idEntreprise);
+        Query query = em.createQuery("select c from Commande as c where c.entreprise.idEntreprise=:idEntreprise").setParameter("idEntreprise", idEntreprise);
         List<Commande> liste = query.getResultList();
         return liste;
     }

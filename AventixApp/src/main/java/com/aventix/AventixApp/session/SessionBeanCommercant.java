@@ -6,8 +6,6 @@
 package com.aventix.AventixApp.session;
 
 import com.aventix.AventixApp.modele.Commercant;
-import com.aventix.AventixApp.modele.Employe;
-import com.aventix.AventixApp.modele.Entreprise;
 import java.util.UUID;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -15,20 +13,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value="session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class SessionBean {
+public class SessionBeanCommercant {
     
     private final String id = UUID.randomUUID().toString();
-    private Employe employe;
     private Commercant commercant;
-    private Entreprise entreprise;
-
-    public Employe getEmploye() {
-        return employe;
-    }
-
-    public void setEmploye(Employe employe) {
-        this.employe = employe;
-    }
 
     public Commercant getCommercant() {
         return commercant;
@@ -38,12 +26,4 @@ public class SessionBean {
         this.commercant = commercant;
     }
 
-    public Entreprise getEntreprise() {
-        return entreprise;
-    }
-
-    public void setEntreprise(Entreprise entreprise) {
-        this.entreprise = entreprise;
-    }
-    
 }

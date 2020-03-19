@@ -38,24 +38,24 @@
         <!-- Sidebar Header    -->
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
-          <div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-              <h2 class="h5">${sessionScope['scopedTarget.sessionBean'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBean'].employe.getNom()}</h2><span>Employé</span>
+          <div class="sidenav-header-inner text-center"><a href="pages-profile.jsp"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
+              <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="indexEmploye.html" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="indexEmploye.jsp" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="indexEmploye.html"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="card-employe.html"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="listeTransactionsEmploye.html"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
+            <li><a href="indexEmploye.jsp"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="card-employe.jsp"><i class="fa fa-credit-card"></i>Carte</a></li>
+            <li><a href="listeTransactionsEmploye.jsp"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
             <li><a href="#chartsDropdown"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
-            <li><a href="maps-employe.html"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="contact.html"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li><a href="maps-employe.jsp"> <i class="fa fa-map-marker"></i>Maps</a></li>
+            <li><a href="contact.jsp"> <i class="fa fa-phone"></i>Contact </a> </li>
 
-            <li><a href="faq.html"><i class="fa fa-question-circle"></i>Faq </a>
+            <li><a href="faq.jsp"><i class="fa fa-question-circle"></i>Faq </a>
             </li>
         </div>
         
@@ -67,7 +67,7 @@
         <nav class="navbar">
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
-              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="indexEmploye.html" class="navbar-brand">
+              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="indexEmploye.jsp" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
@@ -77,7 +77,7 @@
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="index.jsp" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -93,7 +93,7 @@
               <!-- Income-->
               <div class="card income text-center">
                 <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBean'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBean'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBeanEmploye'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
                 <p>Utilisable ce jour </p>
               </div>
             </div>

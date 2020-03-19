@@ -164,9 +164,9 @@ public class ServicesImpl implements ServicesEmploye, ServicesEntreprise, Servic
         return dao.findEmployeByNom(nom);
     }
     
-    public List<Employe> findEmployeByEntreprise(Long idEntreprise) {
+    public List<Employe> findEmployeByIdEntreprise(Long idEntreprise) {
         EmployeDao dao = new EmployeDao();
-        return dao.findEmployeByEntreprise(idEntreprise);
+        return dao.findEmployeByIdEntreprise(idEntreprise);
     }
     
     public Employe findEmployeByIdCarte(Long idCarte) {

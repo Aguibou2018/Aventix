@@ -61,9 +61,9 @@ public class EmployeDao {
         return liste;
     }
     
-    public List<Employe> findEmployeByEntreprise(Long idEntreprise){
+    public List<Employe> findEmployeByIdEntreprise(Long idEntreprise){
         EntityManager em = JpaUtil.getEntityManager();
-        Query query = em.createQuery("select e from Employe as e where e.idEntreprise=:idEntreprise").setParameter("idEntreprise", idEntreprise);
+        Query query = em.createQuery("select e from Employe as e where e.entreprise.idEntreprise=:idEntreprise").setParameter("idEntreprise", idEntreprise);
         List<Employe> liste = query.getResultList();
         return liste;
     }
