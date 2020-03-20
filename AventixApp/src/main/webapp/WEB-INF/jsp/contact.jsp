@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aventix Dashboard by SoftDesign</title>
     <meta name="description" content="">
@@ -39,7 +37,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-              <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
@@ -50,13 +48,13 @@
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
             <li><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
+            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a>
+            </li>
             <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li  class="active"><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
 
-            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a>
-            </li>
+            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a></li>  
         </div>
         
       </div>
@@ -84,83 +82,64 @@
         </nav>
       </header>
      
-
-      <!-- Statistics Section-->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-                <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBeanEmploye'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
-                <p>Utilisable ce jour </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card data-usage">
-                <h2 class="display h4">Solde Carte</h2>
-                <div class="row d-flex align-items-center">
-                  <div class="col-sm-6">
-                    <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
-                  </div>
-                  <div class="col-sm-6"><strong class="text-primary"> </i></strong><small>Plan actuel</small><span>210 euros par mois</span></div>
-                </div>
-                <p>Votre solde carte.</p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-              <div class="card user-activity">
-                <h2 class="display h4">Vos Visites</h2>
-                <div class="number">250</div>
-                <h3 class="h4 display"> </h3>
-                <div class="progress">
-                  <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
-                </div>
-                <div class="page-statistics d-flex justify-content-between">
-                  <div class="page-statistics-left"><span> Visite Restaurant </span><strong>230</strong></div>
-                  <div class="page-statistics-right"><span>Nouvelles Visites</span><strong>73.4%</strong></div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/index">Acceuil</a></li>
+            <li class="breadcrumb-item active">Maps       </li>
+          </ul>
         </div>
+      </div>
+      <section class="forms">
+        <div class="container-fluid">
+          <!-- Page Header-->
+          <header> 
+             <section class="dashboard-counts section-padding">
+                <div class="container-fluid">
+                  <!-- Count item widget-->
+                    <div class="col-12">
+                      <div class="wrapper count-title d-flex">
+                        <div class="icon"><i class="fa fa-phone"></i></div>
+                        <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           </section>          
+         </header>
+ <!-- Contact Section -->
+          <div class="card">
+          <section class="page-section">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                  <h2 class="text-primary" >Contactez nous!</h2>
+                  <hr class="divider my-4">
+                  <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                  <i class="fa fa-phone fa-3x text-muted"></i>
+                  <div>+1 (202) 555-0149</div>
+                </div>
+                <div class="col-lg-4 mr-auto text-center">
+                  <i class="fa fa-envelope fa-3x text-muted"></i>
+                  <!-- Make sure to change the email address in anchor text AND the link below! -->
+                  <a class="d-block" href="mailto:contact@yourwebsite.com">softdesign@aventix.com</a>
+                </div>
+              </div>
+            </div>
+          </section>  
+        </div>
+        
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
-       </section>
-      
       <footer class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>SoftDesign &copy; 2019-2020</p>
+              <p>SoftDesign &copy; 2017-2019</p>
             </div>
             <div class="col-sm-6 text-right">
               <p>Version 1.4.5</p>
@@ -178,11 +157,6 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Notifications-->
-    <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
-    <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

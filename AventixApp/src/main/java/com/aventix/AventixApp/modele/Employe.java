@@ -247,6 +247,13 @@ public class Employe implements Serializable {
         return services.findTransaByIdCarte(this.getCarte().getId());
     }
     
+    //Retourne le nombre de transactions total
+    public int nombreTransa() {
+            ServicesImpl services = new ServicesImpl();
+            int nombreTransa = services.findTransaByIdCarte(this.getCarte().getId()).size();
+            return nombreTransa;
+    }
+    
     //Verification password
     public boolean verifLogin(String email, String password) {
         ServicesImpl services = new ServicesImpl();

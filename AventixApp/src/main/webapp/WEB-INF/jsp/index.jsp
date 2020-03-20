@@ -41,7 +41,7 @@
             <a class="nav-link js-scroll-trigger" href="#about">A propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Avantages</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
@@ -52,10 +52,9 @@
           <li class="nav-item">
             <a  href="#connexion" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-1x fa-user-circle"></i> Connexion</a>
               <ul id="connexion" class="collapse list-unstyled ">
-              
-                <li><a class="nav-link js-scroll-trigger" href="/login?statut=employe"" >Employé</a></li>
-                <li><a class="nav-link js-scroll-trigger" href="login?statut=employeur" >Entreprise</a></li>
-                <li><a  class="nav-link js-scroll-trigger" href="/login?statut=commercant" >Commerçant</a></li>
+                <li><a class="nav-link js-scroll-trigger" href="/login?statut=employe" >Employ�</a></li>
+                <li><a class="nav-link js-scroll-trigger" href="/login?statut=entreprise" >Entreprise</a></li>
+                <li><a class="nav-link js-scroll-trigger" href="/login?statut=commercant" >Commer�ant</a></li>
               </ul>
             </li>
 
@@ -75,7 +74,6 @@
         </div>
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5">Vers le futur</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">en savoir plus</a>
         </div>
       </div>
     </div>
@@ -89,7 +87,7 @@
           <h2 class="text-white mt-0">Nous avons ce qu'il vous faut!</h2>
           <hr class="divider light my-4">
           <p class="text-white-50 mb-4"> Nous proposons nos titres restaurants au format carte, plus pratique et plus écologique !! Le titre-restaurant Aventix simplifie le quotidien de tous : entreprises, employés, commerçants, rejoignez-nous et savourez vos repas grâce à Aventix!</p>
-          <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+          
         </div>
       </div>
     </div>
@@ -226,15 +224,18 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Contactez nous!</h2>
+          <h2 class="mt-0">Contactez nous !</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+          <p class="text-muted mb-5">Contacter un conseiller commercial ou notre service clients <br/>
+		  De 8:30 à 18:30 du lundi au vendredi</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
           <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>+1 (202) 555-0149</div>
+          <div>0 824 21 22 23 <br/>
+          Service 0.12€/appel + prix appel
+          </div>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>

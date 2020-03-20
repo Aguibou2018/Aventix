@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,7 +37,7 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-              <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
+            <h2 class="h5">Vivian WONG</h2><span>EmployÃ©</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
           <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
@@ -50,13 +48,14 @@
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
             <li><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
-            <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
+            <li class="active"><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a>
+            </li>
+            <li ><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
             <li><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
 
-            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a>
-            </li>
+            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a></li>  
+          </ul>    
         </div>
         
       </div>
@@ -71,7 +70,7 @@
                   <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                 <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
                   </ul>
@@ -83,84 +82,67 @@
           </div>
         </nav>
       </header>
-     
+       <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexEmploye">Acceuil</a></li>
+            <li class="breadcrumb-item active">Transactions</li>
+          </ul>
+        </div>
+      </div>
+      <section>
+        <div class="container-fluid">
+          <!-- Page Header-->
+          <header> 
+              <section class="dashboard-counts section-padding">
+                <div class="container-fluid">
+                  <!-- Count item widget-->
+                    <div class="col-12">
+                      <div class="wrapper count-title d-flex">
+                        <div class="icon"><i class="icon-check"></i></div>
+                        <div class="name"><strong class="text-uppercase">Transactions</strong><span>Table transactions </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           </section>
+          </header>
 
-      <!-- Statistics Section-->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-                <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBeanEmploye'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
-                <p>Utilisable ce jour </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card data-usage">
-                <h2 class="display h4">Solde Carte</h2>
-                <div class="row d-flex align-items-center">
-                  <div class="col-sm-6">
-                    <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
-                  </div>
-                  <div class="col-sm-6"><strong class="text-primary"> </i></strong><small>Plan actuel</small><span>210 euros par mois</span></div>
-                </div>
-                <p>Votre solde carte.</p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-              <div class="card user-activity">
-                <h2 class="display h4">Vos Visites</h2>
-                <div class="number">250</div>
-                <h3 class="h4 display"> </h3>
-                <div class="progress">
-                  <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
-                </div>
-                <div class="page-statistics d-flex justify-content-between">
-                  <div class="page-statistics-left"><span> Visite Restaurant </span><strong>230</strong></div>
-                  <div class="page-statistics-right"><span>Nouvelles Visites</span><strong>73.4%</strong></div>
-                </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="datatable1" style="width: 100%;" class="table">
+                  <thead>
+                    <tr>
+                      <th>id transaction</th>
+                      <th>Commercant</th>
+                      <th>Montant</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <script type="text/javascript">
+                        i=0; for (i;i<${taille};i++){
+                            "<tr>
+                                <td>"${listeTransa.get(i).getId()}"</td>
+                                <td>"${listeTransa.get(i).getIdCommercant()}"</td>
+                                <td>"${listeTransa.get(i).getMontant()}"</td>
+                                <td>"${listeTransa.get(i).getDate()}"</td>
+                            </tr>"; }
+                    </script>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
-       </section>
-      
       <footer class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>SoftDesign &copy; 2019-2020</p>
+              <p>SoftDesign &copy; 2017-2019</p>
             </div>
             <div class="col-sm-6 text-right">
               <p>Version 1.4.5</p>
@@ -178,11 +160,12 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Notifications-->
-    <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
-    <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
+    <!-- Data Tables-->
+    <script src="vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="js/tables-datatable.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

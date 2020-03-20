@@ -36,7 +36,8 @@ public class MainController {
     private SessionBeanCommercant sessionBeanCommercant;
     
     ServicesImpl services = new ServicesImpl();
- 
+    
+    //Home + genere donnees
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String home(Model model) {
         
@@ -46,7 +47,7 @@ public class MainController {
         Commercant c3 = new Commercant("Paul", "paul@pain.fr", "briochedoree", "20 avenue albert einstein", "0403050784", "1234 5678 9101 1121");
         services.referencerCommercant(c3);
         
-        Employe e1 =  new Employe("Vivian", "Wong", "Villeurbanne", "vivian.wong@insa-lyon.fr");
+        Employe e1 =  new Employe("Vivian", "Wong", "Villeurbanne", "vivian.wong@insa-lyon.fr", entreprise);
         services.referencerEmploye(e1);
         Carte c1 = new Carte(19);
         services.referencerCarte(c1);
@@ -57,14 +58,22 @@ public class MainController {
         Carte c2 = new Carte(29);
         services.referencerCarte(c2);
         e2.affecterCarte(c2);
-        System.out.println(services.findCarteById(c2.getId()).getValidite());
         c2.setValidite(false);
         services.miseAJourCarte(c2);
-        System.out.println(services.findCarteById(c2.getId()).getValidite());
         Transa t1 = new Transa(c2.getId(), c3.getId(), 13);
         Transa t2 = new Transa(c1.getId(), c3.getId(), 11);
         services.referencerTransa(t1);
         services.referencerTransa(t2);
+        return "index";
+    }
+    
+    @RequestMapping(value="/index", method = RequestMethod.GET)
+    public String deconnexion(Model model) {	
+        return "index";
+    }
+    
+    @RequestMapping(value="/indexEmploye", method = RequestMethod.GET)
+    public String accueilEmploye(Model model) {	
         return "indexEmploye";
     }
     
@@ -116,15 +125,54 @@ public class MainController {
         return "login";
     }
     
-    /*@RequestMapping(value = { "/indexEmploye" }, method = RequestMethod.GET)
-    public String indexEmploye(Model model) {
-        String nom = services.findEmployeById(e.getId()).getNom();
-        String prenom = services.findEmployeById(e.getId()).getPrenom();
-        String statut = services.findEmployeById(e.getId()).getClass().getName().replaceFirst("com.aventix.AventixApp.modele.", "");
- 
-        model.addAttribute("nom", nom);
-        model.addAttribute("prenom", prenom);
-        model.addAttribute("statut", statut);
-        return "indexEmploye";
-    }*/
+    @RequestMapping(value="/faq", method = RequestMethod.GET)
+    public String faqEmploye(Model model) {	
+        return "faq";
+    }
+    
+    @RequestMapping(value="/contact", method = RequestMethod.GET)
+    public String contactEmploye(Model model) {	
+        return "contact";
+    }
+    
+    @RequestMapping(value="/maps-employe", method = RequestMethod.GET)
+    public String mapsEmploye(Model model) {	
+        return "maps-employe";
+    }
+    
+    @RequestMapping(value="/listeRestaurants", method = RequestMethod.GET)
+    public String listeRestaurantsEmploye(Model model) {
+        int taille = services.findAllCommercants().size();
+        List<Commercant> listeCommercant = services.findAllCommercants();
+        model.addAttribute("nombreRestaurants", taille);
+        model.addAttribute("listeRestaurants", listeCommercant);
+        return "listeRestaurants";
+    }
+    
+    @RequestMapping(value="/listeTransactions", method = RequestMethod.GET)
+    public String listeTransactionsEmploye(Model model) {
+        int taille = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId()).size();
+        List<Transa> listeTransa = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId());
+        model.addAttribute("nombreRestaurants", taille);
+        model.addAttribute("listeRestaurants", listeTransa);
+        return "listeTransactions";
+    }
+
+    @RequestMapping(value="/card-employe", method = RequestMethod.GET)
+    public String carteEmploye(Model model) {
+        String validite;
+        if (services.findCarteByIdEmploye(sessionBeanEmploye.getEmploye().getId()).getValidite()) {
+            validite = "Carte activée";
+        }else{
+            validite = "Carte désactivée";
+        }
+        model.addAttribute("validite", validite);
+        return "card-employe";
+    }
+    
+    @RequestMapping(value="/indexEntreprise", method = RequestMethod.GET)
+    public String accueilEntreprise(Model model) {	
+        return "indexEntreprise";
+    }
+    
 }
