@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,33 +36,20 @@
         <!-- Sidebar Header    -->
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
-          <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/logo-sncf.jpg" alt="Entreprise" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
+          <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/avatar-1.png" alt="Entreprise" class="img-fluid rounded-circle"></a>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant()}</h2><span>Commercant</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmployeur" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexCommercant" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
-              <ul id="commande" class="collapse list-unstyled ">
-                <li><a href="/newCommande">Nouvelle Commande</a></li>
-                <li><a href="/listeCommandes">Liste des Commandes</a></li>
-              </ul>
-            </li>
-            <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
-              <ul id="employe" class="collapse list-unstyled ">
-                <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEmploye">Liste des employés </a></li>
-              </ul>
-            </li>
-            
-			<li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
-            <li><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact </a> </li>
-            <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>Faq </a></li>
+            <li><a href="/indexCommercant"> <i class="icon-home"></i>Acceuil </a></li>
+            <li class="active"><a href="/listeTransactionsCommercant"><i class="fa fa-credit-card"></i>Liste des transactions</a></li>
+            <li><a href="/contactCommercant"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li><a href="/faqCommercant"><i class="fa fa-question-circle"></i>Faq </a></li>
           </ul>
         </div>
       </div>
@@ -75,7 +60,7 @@
         <nav class="navbar">
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
-              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEntreprise" class="navbar-brand">
+              <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexCommercant" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
@@ -91,63 +76,94 @@
           </div>
         </nav>
       </header>
-      <!-- Counts Section -->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Employés inscrits</h2>
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreEmploye()}</div>
+       <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexCommercant">Acceuil</a></li>
+            <li class="breadcrumb-item active">Liste des transactions </li>
+          </ul>
+        </div>
+      </div>      
+      <section>
+        <div class="container-fluid">
+              <section class="dashboard-counts section-padding">
+                <div class="container-fluid">
+                  <!-- Count item widget-->
+                    <div class="col-12">
+                      <div class="wrapper count-title d-flex">
+                        <div class="icon"><i class="icon-check"></i></div>
+                        <div class="name"><strong class="text-uppercase">Transactions</strong><span>Table transactions </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           </section>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <h1> <i class="fa fa-credit-card"></i> Liste de toutes les transactions
+                </h1>
+                <table id="datatable1" style="width: 100%;" class="table">
+                  <thead>
+                    <tr>
+                      <th>id transaction</th>
+                      <th>Entreprise</th>
+                      <th>Montant</th>
+                      <th>Date</th>
+                      <th>Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>11654633</td>
+                      <td>Boulangerie INSA</td>
+                      <td>12                                                 </td>
+                      <td>12/12/2012</td>
+                      <td>payÃ©</td>
+                    </tr>
+                    <tr>
+                      <td>11654133</td>
+                      <td>Prevert </td>
+                      <td>12                                                 </td>
+                      <td>10/11/2020</td>
+                      <td>en attente</td>
+                    </tr>
+                    <tr>
+                      <td>35654133</td>
+                      <td>Prevert </td>
+                      <td>12                                                 </td>
+                      <td>14/11/2020</td>
+                      <td>en attente</td>
+                    </tr>
+                    <tr>
+                      <td>35654133</td>
+                      <td>Cle de Sol </td>
+                      <td>12                                                 </td>
+                      <td>16/11/2019</td>
+                      <td>en attente</td>
+                    </tr>
+                    <tr>
+                      <td>35654133</td>
+                      <td>Cle de Sol </td>
+                      <td>12                                                 </td>
+                      <td>16/11/2019</td>
+                      <td>payÃ©</td>
+                    </tr>
+                    <tr>
+                      <td>35654133</td>
+                      <td>Cle de Sol </td>
+                      <td>12                                                 </td>
+                      <td>16/11/2019</td>
+                      <td>payÃ©</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Nombre de Carte</h2>
-                <div class="icon"><i class="fa fa-id-card-o"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCarte()}</div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-            <div class="card income text-center">
-              	<h2 class="display h4"> Nombre de Commandes</h2>
-                <div class="icon"><i class="icon-bill"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCommande()}</div>
-              </div>
-            </div>        
+          </div>
         </div>
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
-       </section>
       
       <footer class="main-footer">
         <div class="container-fluid">
@@ -172,6 +188,12 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/charts-home.js"></script>
+     <!-- Data Tables-->
+    <script src="vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="js/tables-datatable.js"></script>
     <!-- Notifications-->
     <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
     <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,31 +40,30 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmployeur" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEntreprise" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
-              <ul id="commande" class="collapse list-unstyled ">
-                <li><a href="/newCommande">Nouvelle Commande</a></li>
+            <li ><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
+            <li class="active"><a href="#commande" aria-expanded="true" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
+              <ul id="commande" class="collapse list-unstyled show ">
+                <li class="active"><a href="/newCommande">Nouvelle Commande</a></li>
                 <li><a href="/listeCommandes">Liste des Commandes</a></li>
               </ul>
             </li>
-            <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
+              <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
               <ul id="employe" class="collapse list-unstyled ">
                 <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEmploye">Liste des employés </a></li>
+                <li><a href="/listeEmployes">Liste des employés </a></li>
               </ul>
             </li>
-            
-			<li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
+             <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
             <li><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact </a> </li>
             <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>Faq </a></li>
-          </ul>
         </div>
+        
       </div>
     </nav>
     <div class="page">
@@ -91,62 +88,83 @@
           </div>
         </nav>
       </header>
-      <!-- Counts Section -->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Employés inscrits</h2>
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreEmploye()}</div>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexEntreprise">Acceuil</a></li>
+            <li class="breadcrumb-item active"> Commande</li>
+          </ul>
+        </div>
+      </div>
+      <section class="dashboard-counts section-padding">
+        <div class="container-fluid">
+          <!-- Count item widget-->
+            <div class="col-12">
+              <div class="wrapper count-title d-flex">
+                <div class="icon"><i class="fa fa-shopping-cart"></i><div>
+                <div class="name"><strong class="text-uppercase">Panier</strong><span> Nouvelle Commande</span>
+                </div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Nombre de Carte</h2>
-                <div class="icon"><i class="fa fa-id-card-o"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCarte()}</div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-            <div class="card income text-center">
-              	<h2 class="display h4"> Nombre de Commandes</h2>
-                <div class="icon"><i class="icon-bill"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCommande()}</div>
-              </div>
-            </div>        
         </div>
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
+      <!-- Counts Section -->
+      <section class="forms"> 
+        <form class="form-validate" method="POST" name="formAchat" id="#formAchat">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-10">
+              <div class="card card-body p-5">
+                <div class="row">
+                  <div class="col text-center">
+                    <!-- Logo--><img src="img/brand/Aventix_logo.jpg" alt="..." style="max-width: 6rem;" class="img-fluid mb-4">
+                    <!-- Heading-->
+                    <h2 class="mb-2">Commande de Cartes Aventix, Ltd.</h2></br>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <!-- Table-->
+                    <div class="table-responsive">
+                      <table class="table my-4">
+                        <thead>
+                          <tr>
+                            <th class="px-0 bg-transparent border-top-0"><span class="h6"><i class="fa fa-address-card-o"></i></span></th>
+                            <th class="px-0 bg-transparent border-top-0 text-right"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="px-0">Nombre de carte</td>
+                            <td class="px-0 text-right"><input type="number" id="nombreCarte" name="nombreCarte"  min="10" required pattern=".*\S.*" ></td>
+                          </tr>
+                          <tr>
+                            <td class="px-0">Prix Unitaire</td>
+                            <td class="px-0 text-right" >20,00â‚¬</td>
+                          </tr>
+                          <tr>
+                            <td class="px-0 border-top"><strong>Total à  payer </strong></td>
+                            <td colspan="2" class="px-0 text-right border-top"><span class="totalApayer" id="totalApayer" name="totalApayer"></span><span  class="h3">,00â‚¬</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                  <div class="col text-center">
+                    <p class="mb-0" >
+                      <button type="submit" class="btn btn-primary mb-2 mb-sm-0">Commander</button>
+                   </p>
+                  </div>
+                </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </form>
        </section>
       
       <footer class="main-footer">
@@ -172,6 +190,32 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/charts-home.js"></script>
+
+    <script>    
+          
+      /*function total() {
+        console.log(document.getElementById("nombreCarte").value);
+        var nbCarte=parseInt(document.getElementById("nombreCarte").value);
+        var totalApaye= nbCarte*20;
+        console.log(document.formAchat.totalApayer);
+        document.formAchat.totalApayer=totalApayer;
+        console.log(document.formAchat.totalApayer.value);
+        '<span class="totalApayer" id="totalApayer" name="totalApayer">'totalApayer'</span>';
+
+      }*/
+      $(function(){
+
+        var input = $('#onglet input[name="nombreCarte"]');
+        var result=$('#onglet.totalApayer');
+
+        input.on('keydown', function(event){
+          var totalApayer =+ event.target.value * 20;
+          result.html("Le resultat est :"+totalApayer);
+
+        });
+      });
+
+    </script>
     <!-- Notifications-->
     <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
     <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>

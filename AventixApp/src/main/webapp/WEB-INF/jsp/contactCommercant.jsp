@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,7 +48,7 @@
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexCommercant"> <i class="icon-home"></i>Acceuil </a></li>
             <li><a href="/listeTransactionsCommercant"><i class="fa fa-credit-card"></i>Liste des transactions</a></li>
-            <li><a href="/contactCommercant"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li class="active"><a href="/contactCommercant"> <i class="fa fa-phone"></i>Contact </a> </li>
             <li><a href="/faqCommercant"><i class="fa fa-question-circle"></i>Faq </a></li>
           </ul>
         </div>
@@ -78,63 +76,87 @@
           </div>
         </nav>
       </header>
-      <!-- Counts Section -->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-6">
-              <!-- Income-->
-              <div class="card income text-center">
-                <h2 class="display h4">Compensation </h2>
-                <div class="icon"><i class="fa fa-paypal"></i></div>
-                <div class="number">13</div><strong class="text-primary">Virement</strong>
-                <p>En attente </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <!-- Monthly Usage-->
-              <div class="card income text-center">
-                <h2 class="display h4">Transaction</h2>
-                <div class="icon"><i class="fa fa-credit-card"></i></div>
-                <div class="number">180</div><strong class="text-primary">Paiement </strong>
-                <p>en attente et déjà effectuée </p>
-              </div>
-            </div>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexCommercant">Acceuil</a></li>
+            <li class="breadcrumb-item active"> Contact </li>
+          </ul>
         </div>
-      </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
+      </div>
+
+      <section class="dashboard-counts section-padding">
+            <div class="container-fluid">
+              <!-- Count item widget-->
+                <div class="col-12">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="fa fa-phone"></i></div>
+                    <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+       </section>          
+
+      <section class="forms">
+        <div class="container-fluid">
           <div class="row">
-            <div class="col-md-2">
-            </div>
-           <div class="col-md-4">
-              <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-                <div class="card-img-overlay card-img-overlay-opacity">
-                  <h5 class="card-title text-white"> ticket restaurant</h5>
-                  <p class="card-text">Aventix.. toujours à votre service.</p>
-                  <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+            <div class="col-md-6 col-xl-4">                       
+              <div class="card">
+                <div class="card-body">
+                  <div class="media align-items-center"><span style="background-image: url(img/avatar-1.jpg)" class="avatar avatar-xl mr-3"></span>
+                    <div class="media-body overflow-hidden">
+                      <h5 class="card-text mb-0">Audrey Laboye</h5>
+                      <p class="card-text text-uppercase">Service Commercial Aventix</p>
+                      <p class="card-text">
+                         
+                        margretcote@zilidium.com<br><abbr title="Phone">P:  </abbr>+1 (893) 532-2218
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-                <div class="card-img-overlay card-img-overlay-opacity">
-                  <h5 class="card-title text-white"> ticket restaurant</h5>
-                  <p class="card-text">Aventix.. toujours à votre service.</p>
-                  <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+            <div class="col-md-6 col-xl-4">                       
+              <div class="card">
+                <div class="card-body">
+                  <div class="media align-items-center"><span style="background-image: url(img/avatar-2.jpg)" class="avatar avatar-xl mr-3"></span>
+                    <div class="media-body overflow-hidden">
+                      <h5 class="card-text mb-0">Olivier Cinquin</h5>
+                      <p class="card-text text-uppercase">Service Admin Aventix</p>
+                      <p class="card-text">
+                         
+                        rachelvinson@chorizon.com<br><abbr title="Phone">P:  </abbr>+1 (891) 494-2060
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-         </div>
-       </div>
-       </section>
-      
+            <div class="col-md-6 col-xl-4">                       
+              <div class="card">
+                <div class="card-body">
+                  <div class="media align-items-center"><span style="background-image: url(img/avatar-3.jpg)" class="avatar avatar-xl mr-3"></span>
+                    <div class="media-body overflow-hidden">
+                      <h5 class="card-text mb-0">Gabrielle Aguirre</h5>
+                      <p class="card-text text-uppercase">Service Facturation</p>
+                      <p class="card-text">
+                         
+                        gabrielleaguirre@comverges.com<br><abbr title="Phone">P:  </abbr>+1 (805) 459-3869
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>      </section>
       <footer class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>SoftDesign &copy; 2019-2020</p>
+              <p>SoftDesign &copy; 2017-2019</p>
             </div>
             <div class="col-sm-6 text-right">
               <p>Version 1.4.5</p>
@@ -152,11 +174,6 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Notifications-->
-    <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
-    <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

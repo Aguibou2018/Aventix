@@ -122,15 +122,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <script type="text/javascript">
-                        i=0; for (i;i<${taille};i++){
-                            "<tr>
-                                <td>"${listeTransa.get(i).getId()}"</td>
-                                <td>"${listeTransa.get(i).getIdCommercant()}"</td>
-                                <td>"${listeTransa.get(i).getMontant()}"</td>
-                                <td>"${listeTransa.get(i).getDate()}"</td>
-                            </tr>"; }
-                    </script>
+                        ${http}
                   </tbody>
                 </table>
               </div>

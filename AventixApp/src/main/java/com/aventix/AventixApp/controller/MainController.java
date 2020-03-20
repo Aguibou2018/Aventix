@@ -153,8 +153,15 @@ public class MainController {
     public String listeTransactionsEmploye(Model model) {
         int taille = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId()).size();
         List<Transa> listeTransa = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId());
+        String http = "";
+        for (int  i=0;i<taille;i++) {
+            http.concat("<tr><td>${listeTransa.get(" + i + ").getId()}</td>" +
+            "<td>${listeTransa.get(" + i + ").getIdCommercant()}</td>" +
+            "<td>${listeTransa.get(" + i + ").getMontant()}</td>" +
+            "<td>${listeTransa.get(" + i + ").getDate()}</td></tr>");
+        }
         model.addAttribute("nombreRestaurants", taille);
-        model.addAttribute("listeRestaurants", listeTransa);
+        model.addAttribute("http", http);
         return "listeTransactions";
     }
 
@@ -175,4 +182,66 @@ public class MainController {
         return "indexEntreprise";
     }
     
+    @RequestMapping(value="/faqEntreprise", method = RequestMethod.GET)
+    public String faqEntreprise(Model model) {	
+        return "faqEntreprise";
+    }
+    
+    @RequestMapping(value="/contactEntreprise", method = RequestMethod.GET)
+    public String contactEntreprise(Model model) {	
+        return "contactEntreprise";
+    }
+    
+    @RequestMapping(value="/listeCartes", method = RequestMethod.GET)
+    public String listeCartesEntreprise(Model model) {	
+        return "listeCartes";
+    }
+    
+    @RequestMapping(value="/newEmploye", method = RequestMethod.GET)
+    public String newEmployeEntreprise(Model model) {
+        model.addAttribute("employe", new Employe());
+        return "newEmploye";
+    }
+    
+    @RequestMapping(value="/listeEmployes", method = RequestMethod.GET)
+    public String listeEmployeEntreprise(Model model) {	
+        return "listeEmployes";
+    }
+    
+    @RequestMapping(value="/newCommande", method = RequestMethod.GET)
+    public String newCommandeEntreprise(Model model) {	
+        return "newCommande";
+    }
+    
+    @RequestMapping(value="/listeCommandes", method = RequestMethod.GET)
+    public String listeCommandeEntreprise(Model model) {	
+        return "listeCommandes";
+    }
+    
+    @RequestMapping(value="/indexCommercant", method = RequestMethod.GET)
+    public String accueilCommercant(Model model) {	
+        return "indexCommercant";
+    }
+    
+    @RequestMapping(value="/faqCommercant", method = RequestMethod.GET)
+    public String faqCommercant(Model model) {	
+        return "faqCommercant";
+    }
+    
+    @RequestMapping(value="/contactCommercant", method = RequestMethod.GET)
+    public String contactCommercant(Model model) {	
+        return "contactCommercant";
+    }
+    
+    @RequestMapping(value="/listeTransactionsCommercant", method = RequestMethod.GET)
+    public String listeTransactionsCommercant(Model model) {	
+        return "listeTransactionsCommercant";
+    }
+    
+    @RequestMapping(value="/newEmploye", method = RequestMethod.POST)
+    public String newEmploye(Model model, @Valid Employe employe) {    	
+        Employe emp = new Employe(employe.getPrenom(), employe.getNom(), employe.getAdresse(), employe.getEmail(), this.sessionBeanEntreprise.getEntreprise());
+        services.referencerEmploye(emp);
+        return "indexEntreprise";
+    }
 }

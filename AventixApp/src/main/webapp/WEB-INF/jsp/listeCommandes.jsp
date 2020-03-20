@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,31 +40,30 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmployeur" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEntreprise" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
-              <ul id="commande" class="collapse list-unstyled ">
+            <li class="active"><a href="#commande" aria-expanded="true" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
+              <ul id="commande" class="collapse list-unstyled show ">
                 <li><a href="/newCommande">Nouvelle Commande</a></li>
-                <li><a href="/listeCommandes">Liste des Commandes</a></li>
+                <li class="active"><a href="/listeCommandes">Liste des Commandes</a></li>
               </ul>
             </li>
             <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
               <ul id="employe" class="collapse list-unstyled ">
                 <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEmploye">Liste des employés </a></li>
+                <li><a href="/listeEmployes">Liste des employés </a></li>
               </ul>
             </li>
-            
-			<li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
+            <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
             <li><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact </a> </li>
             <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>Faq </a></li>
-          </ul>
         </div>
+        
       </div>
     </nav>
     <div class="page">
@@ -91,69 +88,84 @@
           </div>
         </nav>
       </header>
-      <!-- Counts Section -->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Employés inscrits</h2>
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreEmploye()}</div>
+       <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexEntreprise">Acceuil</a></li>
+            <li class="breadcrumb-item active">Commandes</li>
+          </ul>
+        </div>
+      </div>
+
+      <section>
+        <div class="container-fluid">
+          <!-- Page Header-->
+              <section class="dashboard-counts section-padding">
+                <div class="container-fluid">
+                  <!-- Count item widget-->
+                    <div class="col-12">
+                      <div class="wrapper count-title d-flex">
+                        <div class="icon"><i class="fa fa-th-list"></i></div>
+                        <div class="name"><strong class="text-uppercase">Commandes</strong><span>Liste des Commandes </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           </section>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <h1> <i class="icon-bill"></i> Liste des Commandes
+                  <a class="btn btn-outline-success" href="/newCommande"><i class="fa fa-shopping-cart"></i>&nbsp; Nouvelle commande</a>
+                </h1>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>id commande</th>
+                      <th>Nombre de carte</th>
+                      <th>date de commande</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
+                      <td>300</td>
+                      <td>10/10/2020</td>
+                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
+                      <td>300</td>
+                      <td>10/10/2020</td>
+                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
+                      <td>300</td>
+                      <td>10/10/2020</td>
+                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
+                      <td>300</td>
+                      <td>10/10/2020</td>
+                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Nombre de Carte</h2>
-                <div class="icon"><i class="fa fa-id-card-o"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCarte()}</div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-            <div class="card income text-center">
-              	<h2 class="display h4"> Nombre de Commandes</h2>
-                <div class="icon"><i class="icon-bill"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCommande()}</div>
-              </div>
-            </div>        
+          </div>
         </div>
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
-       </section>
-      
       <footer class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>SoftDesign &copy; 2019-2020</p>
+              <p>Your company &copy; 2017-2019</p>
             </div>
             <div class="col-sm-6 text-right">
               <p>Version 1.4.5</p>
@@ -171,11 +183,12 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Notifications-->
-    <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
-    <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
+    <!-- Data Tables-->
+    <script src="vendor/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="js/tables-datatable.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

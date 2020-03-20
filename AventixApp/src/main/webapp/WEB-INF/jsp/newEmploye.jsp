@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,31 +43,30 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmployeur" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEntreprise" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
-            <li><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
+            <li ><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
               <ul id="commande" class="collapse list-unstyled ">
                 <li><a href="/newCommande">Nouvelle Commande</a></li>
                 <li><a href="/listeCommandes">Liste des Commandes</a></li>
               </ul>
             </li>
-            <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
-              <ul id="employe" class="collapse list-unstyled ">
-                <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEmploye">Liste des employés </a></li>
+          <li class="active"><a href="#employe" aria-expanded="true" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
+              <ul id="employe" class="collapse list-unstyled show ">
+                <li class="active"><a href="/newEmploye">Nouvel employé </a></li>
+                <li><a href="/listeEmployes">Liste des employés </a></li>
               </ul>
             </li>
-            
-			<li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
+            <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
             <li><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact </a> </li>
             <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>Faq </a></li>
-          </ul>
         </div>
+        
       </div>
     </nav>
     <div class="page">
@@ -91,69 +91,96 @@
           </div>
         </nav>
       </header>
-      <!-- Counts Section -->
-      <section class="statistics" >
-        <div class="container-fluid" style="margin-top: 20px;">
-          <div class="row d-flex">
-            <div class="col-lg-4">
-              <!-- Income-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Employés inscrits</h2>
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreEmploye()}</div>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/indexEntreprise">Acceuil</a></li>
+            <li class="breadcrumb-item active"> EmployÃ©</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Count item widget-->
+      <section class="dashboard-counts section-padding">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-2 col-md-4 col-6">
+              <div class="wrapper count-title d-flex">
+                <div class="icon"><i class="fa fa-user-plus"></i></div>
+                <div class="name"><strong class="text-uppercase">Employe </strong><span>Nouvel Employe</span>
+                </div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- Monthly Usage-->
-              <div class="card income text-center">
-              	<h2 class="display h4">Nombre de Carte</h2>
-                <div class="icon"><i class="fa fa-id-card-o"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCarte()}</div>
+        </div>
+       </div>
+      </section>
+
+      <section class="forms">
+        <div class="container-fluid">
+          <!-- Page Header-->
+            <div class="row">
+            <div class="col-lg-10">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>Enregistrer votre employé</h4>
+                </div>
+                <div class="card-body">
+                  <p>Tous les champs sont obligatoires.</p>
+                  <form:form action="/newEmploye" modelAttribute="employe" class="form-horizontal">
+
+                    <div class="form-group row">
+                      <label class="col-sm-2">Nom </label>
+                      <div class="col-sm-10">
+                        <form:input path="nom" id="nom" name="nom" type="text" placeholder="Nom" class="form-control form-control-success"/><small class="form-text">Exemple : KOMLAN</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Prenom </label>
+                      <div class="col-sm-10">
+                        <form:input path="prenom" id="prenom" name="prenom" type="text" placeholder="prenom" class="form-control form-control-success"/><small class="form-text">Exemple : Nina</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Adresse </label>
+                      <div class="col-sm-10">
+                        <form:input path="adresse" id="adresse" name="adresse" type="text" placeholder="adresse" class="form-control form-control-success"/><small class="form-text"> Exemple : 20 avenue Albert Einstein </small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Email</label>
+                      <div class="col-sm-10">
+                        <form:input path="email" id="email" name="email" type="email" placeholder="Adresse email" class="form-control " /><small class="form-text">Exemple : ninakomlan@gmail.com</small>
+                      </div>
+                    </div>
+                     <div class="form-group row">
+                      <label class="col-sm-2 form-control-label">Carte</label>
+                      <div class="col-sm-10 mb-3">
+                        <select name="account" class="form-control">
+                          <option>carte 1</option>
+                          <option>carte 2</option>
+                          <option>carte 3</option>
+                          <option>carte 4</option>
+                        </select><small class="form-text">Associez une carte à l'employé</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">       
+                      <div class="col-sm-10 offset-sm-2">
+                        <input type="submit" value="Enregistrer" class="btn btn-primary">
+                      </div>
+                    </div>
+                  </form:form>
+              
               </div>
             </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-            <div class="card income text-center">
-              	<h2 class="display h4"> Nombre de Commandes</h2>
-                <div class="icon"><i class="icon-bill"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.nombreCommande()}</div>
-              </div>
-            </div>        
+          </div>
         </div>
       </section>
-       <!-- Counts Section -->
-        <section >
-        <div class="container-fluid" style="margin-top: 20px;">
-        	<div class="row">
-        		<div class="col-md-2">
-		        </div>
-		       <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
-		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
-		            </div>
-		          </div>
-		        </div>
-		     </div>
-		   </div>
-       </section>
-      
       <footer class="main-footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <p>SoftDesign &copy; 2019-2020</p>
+              <p>Your company &copy; 2017-2019</p>
             </div>
             <div class="col-sm-6 text-right">
               <p>Version 1.4.5</p>
@@ -171,11 +198,6 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Notifications-->
-    <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
-    <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>
