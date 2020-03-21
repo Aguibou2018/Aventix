@@ -56,7 +56,7 @@
           <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
               <ul id="employe" class="collapse list-unstyled">
                 <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEntreprise">Liste des employés </a></li>
+                <li><a href="/listeEmployes">Liste des employés </a></li>
               </ul>
             </li>
             <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>

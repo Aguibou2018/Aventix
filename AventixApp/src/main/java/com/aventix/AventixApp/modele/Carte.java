@@ -39,7 +39,7 @@ public class Carte implements Serializable {
     
     public Carte() {
         this.validite = false;
-        this.montantMaxJournalier = 0;
+        this.montantMaxJournalier = 19;
         this.solde = 0;
     }
     

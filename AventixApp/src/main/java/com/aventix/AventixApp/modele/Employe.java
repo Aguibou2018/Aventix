@@ -50,11 +50,11 @@ public class Employe implements Serializable {
 //Constructeur par défault
     
     public Employe() {
-        this.prenom = "John";
-        this.nom = "Doe";
+        this.prenom = "";
+        this.nom = "";
         this.adresse = "";
-        this.email = this.getPrenom().toLowerCase().replace(" ", "-") + "." + this.getNom().toLowerCase().replace(" ", "") + "@aventix.fr";
-        this.password = (this.getNom() + this.getPrenom() + "@" + "2020").replace(" ", "");
+        this.email = "";
+        this.password = "";
     }
     
 //Constructeur par valeurs 1

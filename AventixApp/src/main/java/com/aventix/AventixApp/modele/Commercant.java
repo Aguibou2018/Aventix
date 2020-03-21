@@ -138,6 +138,33 @@ public class Commercant implements Serializable {
         ServicesImpl services = new ServicesImpl();
         return services.findTransaByIdCommercant(this.getId());
     }
+    
+    //Retourne le nombre de transactions non compensées
+    public int nbCompensation() {
+        ServicesImpl services = new ServicesImpl();
+        List<Transa> transactions = services.findTransaByIdCommercantAndStatut(this.getId(), false);
+        int nb = transactions.size();
+        return nb;
+    }
+    
+    //Retourne le nombre de transactions compensées
+    public int nbCompensationEffectuees() {
+        ServicesImpl services = new ServicesImpl();
+        List<Transa> transactions = services.findTransaByIdCommercantAndStatut(this.getId(), true);
+        int nb = transactions.size();
+        return nb;
+    }
+    
+    //Retourne le montant des transactions non compensées
+    public float montantAPercevoir() {
+        ServicesImpl services = new ServicesImpl();
+        List<Transa> transactions = services.findTransaByIdCommercantAndStatut(this.getId(), false);
+        float montant = 0;
+        for (int i=0;i<transactions.size();i++) {
+            montant += transactions.get(i).getMontant();
+        }
+        return montant;
+    }
 
 /*---------------------------------Surcharges---------------------------------*/
 

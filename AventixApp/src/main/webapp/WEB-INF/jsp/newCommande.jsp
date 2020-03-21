@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -111,7 +115,7 @@
       </section>
       <!-- Counts Section -->
       <section class="forms"> 
-        <form class="form-validate" method="POST" name="formAchat" id="#formAchat">
+        <form:form action="/newCommande" modelAttribute="commande" class="form-validate">
         <div class="container-fluid">
           <div class="row">
             <div class="col-xl-10">
@@ -137,15 +141,15 @@
                         <tbody>
                           <tr>
                             <td class="px-0">Nombre de carte</td>
-                            <td class="px-0 text-right"><input type="number" id="nombreCarte" name="nombreCarte"  min="10" required pattern=".*\S.*" ></td>
+                            <td class="px-0 text-right"><form:input path="nbCartes" type="number" id="nbCartes" name="nbCartes"  min="10" required="required"/></td>
                           </tr>
                           <tr>
                             <td class="px-0">Prix Unitaire</td>
-                            <td class="px-0 text-right" >20,00€</td>
+                            <td class="px-0 text-right" >20,00</td>
                           </tr>
                           <tr>
-                            <td class="px-0 border-top"><strong>Total � payer </strong></td>
-                            <td colspan="2" class="px-0 text-right border-top"><span class="totalApayer" id="totalApayer" name="totalApayer"></span><span  class="h3">,00€</span></td>
+                            <td class="px-0">Commentaires</td>
+                            <td class="px-0 text-right"><form:input path="commentaires" type="text" id="commentaires" name="commentaires"/></td>
                           </tr>
                         </tbody>
                       </table>
@@ -164,7 +168,7 @@
             </div>
           </div>
         </div>
-       </form>
+       </form:form>
        </section>
       
       <footer class="main-footer">

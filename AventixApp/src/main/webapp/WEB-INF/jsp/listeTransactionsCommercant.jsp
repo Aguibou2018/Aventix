@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -108,55 +110,22 @@
                   <thead>
                     <tr>
                       <th>id transaction</th>
-                      <th>Entreprise</th>
+                      <th>Carte</th>
                       <th>Montant</th>
                       <th>Date</th>
                       <th>Statut</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>11654633</td>
-                      <td>Boulangerie INSA</td>
-                      <td>12                                                 </td>
-                      <td>12/12/2012</td>
-                      <td>payé</td>
-                    </tr>
-                    <tr>
-                      <td>11654133</td>
-                      <td>Prevert </td>
-                      <td>12                                                 </td>
-                      <td>10/11/2020</td>
-                      <td>en attente</td>
-                    </tr>
-                    <tr>
-                      <td>35654133</td>
-                      <td>Prevert </td>
-                      <td>12                                                 </td>
-                      <td>14/11/2020</td>
-                      <td>en attente</td>
-                    </tr>
-                    <tr>
-                      <td>35654133</td>
-                      <td>Cle de Sol </td>
-                      <td>12                                                 </td>
-                      <td>16/11/2019</td>
-                      <td>en attente</td>
-                    </tr>
-                    <tr>
-                      <td>35654133</td>
-                      <td>Cle de Sol </td>
-                      <td>12                                                 </td>
-                      <td>16/11/2019</td>
-                      <td>payé</td>
-                    </tr>
-                    <tr>
-                      <td>35654133</td>
-                      <td>Cle de Sol </td>
-                      <td>12                                                 </td>
-                      <td>16/11/2019</td>
-                      <td>payé</td>
-                    </tr>
+                    <c:forEach items="${transactions}" var="transaction">
+                          <tr>
+                              <td>${transaction.getId()}</td>
+                              <td>${transaction.getIdCarte()}</td>
+                              <td>${transaction.getMontant()}</td>
+                              <td>${transaction.getDate()}</td>
+                              <td>${transaction.getStatut()}</td>
+                          </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
               </div>

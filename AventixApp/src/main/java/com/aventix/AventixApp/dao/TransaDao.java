@@ -83,6 +83,13 @@ public class TransaDao {
         return liste;
     }
     
+    public List<Transa> findTransaByIdCommercantAndStatut(Long idCommercant, boolean statut) {
+        EntityManager em = JpaUtil.getEntityManager();
+        Query query = em.createQuery("select t from Transa as t where t.idCommercant=:idCommercant and t.statut=:statut").setParameter("idCommercant", idCommercant).setParameter("statut", statut);
+        List<Transa> liste = query.getResultList();
+        return liste;
+    }
+    
 /*--------------------------FIN FINDERS TRANSACTIONS--------------------------*/
     
 }

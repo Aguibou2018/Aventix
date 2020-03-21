@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -124,15 +126,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <script type="text/javascript">
-                        i=0; for (i;i<${taille};i++){
-                            <tr>
-                                <td>${listeCommercant.get(i).getNomCommercant()}</td>
-                                <td>${listeCommercant.get(i).getAdresse()}</td>
-                                <td>${listeCommercant.get(i).getEmail()}</td>
-                                <td>${listeCommercant.get(i).getTelephone()}</td>
-                            </tr>; }
-                    </script>
+                        <c:forEach items="${commercants}" var="commercant">
+                          <tr>
+                              <td>${commercant.getNomCommercant()}</td>
+                              <td>${commercant.getEmail()}</td>
+                              <td>${commercant.getAdresse()}</td>
+                              <td>${commercant.getTelephone()}</td>
+                          </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
               </div>

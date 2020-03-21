@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -130,43 +132,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>19</td>
-                      <td>0</td>
-                      <td>Activé</td>
-                      <td>Nina Komlan</td>
-                     <!-- 3 boutons au choix --> 
-                      <td><a href="#desactiverCarte?id=idcarte" class="btn btn-danger btn-sm fa-2" title="desactiver carte" onclick="Desactiver('idcarte', 'nina Komlan',this.href)"> Desactiver </a> <a href="#activeCarte?id=idcarte" class="btn btn-success btn-sm fa-2" title="activer carte" onclick="Reactiver('idcarte', 'nina Komlan',this.href)"> Activer </a> <a href="/newEmploye?id=idcarte" class="btn btn-warning btn-sm fa-2" title="associé un employé"> Associer </a> </td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>19</td>
-                      <td>0</td>
-                      <td>Desactivé</td>
-                      <td>Nina Komlan</td>
-                     <!-- 3 boutons au choix --> 
-                      <td><a href="#desactiverCarte?id=idcarte" class="btn btn-danger btn-sm fa-2" title="desactiver carte" onclick="Desactiver('idcarte', 'nina Komlan',this.href)"> Desactiver </a> <a href="#activeCarte?id=idcarte" class="btn btn-success btn-sm fa-2" title="activer carte" onclick="Reactiver('idcarte', 'nina Komlan',this.href)"> Activer </a> <a href="/newEmploye?id=idcarte" class="btn btn-warning btn-sm fa-2" title="associé un employé"> Associer </a> </td>                  
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>19</td>
-                      <td>0</td>
-                      <td>Desactivé</td>
-                      <td>NC</td>
-                     <!-- 3 boutons au choix --> 
-                      <td><a href="#desactiverCarte?id=idcarte" class="btn btn-danger btn-sm fa-2" title="desactiver carte" onclick="Desactiver('idcarte', 'nina Komlan',this.href)"> Desactiver </a> <a href="#activeCarte?id=idcarte" class="btn btn-success btn-sm fa-2" title="activer carte" onclick="Reactiver('idcarte', 'nina Komlan',this.href)"> Activer </a> <a href="/newEmploye?id=idcarte" class="btn btn-warning btn-sm fa-2" title="associé un employé"> Associer </a> </td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>19</td>
-                      <td>0</td>
-                      <td>Desactivé</td>
-                      <td>NC</td>
-                     <!-- 3 boutons au choix --> 
-                      <td><a href="#desactiverCarte?id=idcarte" class="btn btn-danger btn-sm fa-2" title="desactiver carte" onclick="Desactiver('idcarte', 'nina Komlan',this.href)"> Desactiver </a> <a href="#activeCarte?id=idcarte" class="btn btn-success btn-sm fa-2" title="activer carte" onclick="Reactiver('idcarte', 'nina Komlan',this.href)"> Activer </a> <a href="newEmploye?id=idcarte" class="btn btn-warning btn-sm fa-2" title="associé un employé"> Associer </a> </td>
-                    </tr>
-                  </tbody>
+                      <c:forEach items="${cartes}" var="carte">
+                          <tr>
+                              <td>${carte.getId()}</td>
+                              <td>${carte.getMontantMaxJournalier()}</td>
+                              <td>${carte.getSolde()}</td>
+                              <td>${carte.getValidite()}</td>
+                              <td>${carte.getEmploye().getPrenom()} ${carte.getEmploye().getNom()}</td>
+                              <td><a href="#desactiverCarte?id=${carte.getId()}" class="btn btn-danger btn-sm fa-2" title="desactiver carte" onclick="Desactiver('${carte.getId()}',this.href)"> Desactiver </a> <a href="#activeCarte?id=${carte.getId()}" class="btn btn-success btn-sm fa-2" title="activer carte" onclick="Reactiver('${carte.getId()}',this.href)"> Activer </a> <a href="/newEmploye?id=${carte.getId()}" class="btn btn-warning btn-sm fa-2" title="associer un employ�"> Associer </a> </td>
+                          </tr>
+                      </c:forEach>
+                    </tbody>
                 </table>
               </div>
             </div>
@@ -196,13 +172,13 @@
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
      <script type="text/javascript">
-      function Desactiver(id, name, url) {
-        if (confirm("Voulez vous vraiment desactiver la carte " +id+ " de "+name+" ?")) {
+      function Desactiver(id, url) {
+        if (confirm("Voulez vous vraiment desactiver la carte " + ${carte.getId()} + " de "+ ${carte.getEmploye().getPrenom()} ${carte.getEmploye().getNom()} +" ?")) {
           location.replace(url);
         }
       }
-       function Reactiver(id, name, url) {
-        if (confirm("Voulez vous vraiment reactiver la carte " +id+ " de "+name+" ?")) {
+       function Reactiver(id, url) {
+        if (confirm("Voulez vous vraiment reactiver la carte " + ${carte.getId()} + " de "+ ${carte.getEmploye().getPrenom()} ${carte.getEmploye().getNom()} +" ?")) {
           location.replace(url);
         }
       }

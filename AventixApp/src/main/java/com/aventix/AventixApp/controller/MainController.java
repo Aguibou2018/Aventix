@@ -7,6 +7,7 @@ package com.aventix.AventixApp.controller;
  
 import com.aventix.AventixApp.form.LoginForm;
 import com.aventix.AventixApp.modele.Carte;
+import com.aventix.AventixApp.modele.Commande;
 import com.aventix.AventixApp.modele.Commercant;
 import com.aventix.AventixApp.modele.Employe;
 import com.aventix.AventixApp.modele.Entreprise;
@@ -68,7 +69,7 @@ public class MainController {
     }
     
     @RequestMapping(value="/index", method = RequestMethod.GET)
-    public String deconnexion(Model model) {	
+    public String deconnexion(Model model) {
         return "index";
     }
     
@@ -115,6 +116,12 @@ public class MainController {
                     if (commercant.get(0).verifLogin(connexion.getEmail(), connexion.getPassword())) {
                         sessionBeanCommercant.setCommercant(commercant.get(0));
                         session.setAttribute("sessionBean", sessionBeanCommercant);
+                        int nbCompensation = commercant.get(0).nbCompensation();
+                        float montantAPercevoir = commercant.get(0).montantAPercevoir();
+                        int transactionsCompensees = commercant.get(0).nbCompensationEffectuees();
+                        model.addAttribute("nbCompensation", nbCompensation);
+                        model.addAttribute("montantAPercevoir", montantAPercevoir);
+                        model.addAttribute("transactionsCompensees", transactionsCompensees);
                         return "indexCommercant";
                     }
                 }
@@ -142,26 +149,15 @@ public class MainController {
     
     @RequestMapping(value="/listeRestaurants", method = RequestMethod.GET)
     public String listeRestaurantsEmploye(Model model) {
-        int taille = services.findAllCommercants().size();
-        List<Commercant> listeCommercant = services.findAllCommercants();
-        model.addAttribute("nombreRestaurants", taille);
-        model.addAttribute("listeRestaurants", listeCommercant);
+        List<Commercant> commercants = services.findAllCommercants();
+        model.addAttribute("commercants", commercants);
         return "listeRestaurants";
     }
     
     @RequestMapping(value="/listeTransactions", method = RequestMethod.GET)
     public String listeTransactionsEmploye(Model model) {
-        int taille = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId()).size();
-        List<Transa> listeTransa = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId());
-        String http = "";
-        for (int  i=0;i<taille;i++) {
-            http.concat("<tr><td>${listeTransa.get(" + i + ").getId()}</td>" +
-            "<td>${listeTransa.get(" + i + ").getIdCommercant()}</td>" +
-            "<td>${listeTransa.get(" + i + ").getMontant()}</td>" +
-            "<td>${listeTransa.get(" + i + ").getDate()}</td></tr>");
-        }
-        model.addAttribute("nombreRestaurants", taille);
-        model.addAttribute("http", http);
+        List<Transa> transactions = services.findTransaByIdCarte(sessionBeanEmploye.getEmploye().getCarte().getId());
+        model.addAttribute("transactions", transactions);
         return "listeTransactions";
     }
 
@@ -193,7 +189,9 @@ public class MainController {
     }
     
     @RequestMapping(value="/listeCartes", method = RequestMethod.GET)
-    public String listeCartesEntreprise(Model model) {	
+    public String listeCartesEntreprise(Model model) {
+        List<Carte> cartes = services.findCarteByIdEntreprise(sessionBeanEntreprise.getEntreprise().getId());
+        model.addAttribute("cartes", cartes);
         return "listeCartes";
     }
     
@@ -204,22 +202,33 @@ public class MainController {
     }
     
     @RequestMapping(value="/listeEmployes", method = RequestMethod.GET)
-    public String listeEmployeEntreprise(Model model) {	
+    public String listeEmployeEntreprise(Model model) {
+        List<Employe> employes = services.findEmployeByIdEntreprise(sessionBeanEntreprise.getEntreprise().getId());
+        model.addAttribute("employes", employes);
         return "listeEmployes";
     }
     
     @RequestMapping(value="/newCommande", method = RequestMethod.GET)
     public String newCommandeEntreprise(Model model) {	
+        model.addAttribute("commande", new Commande());
         return "newCommande";
     }
     
     @RequestMapping(value="/listeCommandes", method = RequestMethod.GET)
-    public String listeCommandeEntreprise(Model model) {	
+    public String listeCommandeEntreprise(Model model) {
+        List<Commande> commandes = services.findCommandeByIdEntreprise(sessionBeanEntreprise.getEntreprise().getId());
+        model.addAttribute("commandes", commandes);
         return "listeCommandes";
     }
     
     @RequestMapping(value="/indexCommercant", method = RequestMethod.GET)
-    public String accueilCommercant(Model model) {	
+    public String accueilCommercant(Model model) {
+        int nbCompensation = sessionBeanCommercant.getCommercant().nbCompensation();
+        float montantAPercevoir = sessionBeanCommercant.getCommercant().montantAPercevoir();
+        int transactionsCompensees = sessionBeanCommercant.getCommercant().nbCompensationEffectuees();
+        model.addAttribute("montantAPercevoir", montantAPercevoir);
+        model.addAttribute("nbCompensation", nbCompensation);
+        model.addAttribute("transactionsCompensees", transactionsCompensees);
         return "indexCommercant";
     }
     
@@ -234,14 +243,36 @@ public class MainController {
     }
     
     @RequestMapping(value="/listeTransactionsCommercant", method = RequestMethod.GET)
-    public String listeTransactionsCommercant(Model model) {	
+    public String listeTransactionsCommercant(Model model) {
+        List<Transa> transactions = services.findTransaByIdCommercant(sessionBeanCommercant.getCommercant().getId());
+        model.addAttribute("transactions", transactions);
         return "listeTransactionsCommercant";
     }
     
     @RequestMapping(value="/newEmploye", method = RequestMethod.POST)
     public String newEmploye(Model model, @Valid Employe employe) {    	
-        Employe emp = new Employe(employe.getPrenom(), employe.getNom(), employe.getAdresse(), employe.getEmail(), this.sessionBeanEntreprise.getEntreprise());
+        Employe emp = new Employe(
+            employe.getPrenom(),
+            employe.getNom(),
+            employe.getAdresse(),
+            employe.getEmail(),
+            this.sessionBeanEntreprise.getEntreprise()
+        );
         services.referencerEmploye(emp);
+        Carte carte = new Carte();
+        services.referencerCarte(carte);
+        emp.affecterCarte(carte);
+        return "indexEntreprise";
+    }
+    
+    @RequestMapping(value="/newCommande", method = RequestMethod.POST)
+    public String newCommande(Model model, @Valid Commande commande) {    	
+        Commande com = new Commande(
+            this.sessionBeanEntreprise.getEntreprise(),
+            commande.getNbCartes(),
+            commande.getCommentaires()
+        );
+        services.referencerCommande(com);
         return "indexEntreprise";
     }
 }

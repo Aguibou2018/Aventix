@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix Dashboard by SoftDesign</title>
+    <title>Aventix - Information carte</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -37,24 +37,24 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/avatar-6.jpg" alt="person" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">Vivian WONG</h2><span>EmployÃ©</span>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom().charAt(0)}</strong><strong class="text-primary">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom().charAt(0)}</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="/indexEmploye"> <i class="icon-home"></i>Accueil</a></li>
             <li class="active"><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a>
+            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions</a>
             </li>
             <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact</a> </li>
 
-            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a></li>  
+            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq</a></li>  
           </ul>    
         </div>
         
@@ -67,12 +67,12 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEmploye" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><span>Aventix</span><strong class="text-primary">Dashboard</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
@@ -86,7 +86,7 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/indexEmploye">Acceuil</a></li>
+            <li class="breadcrumb-item"><a href="/indexEmploye">Accueil</a></li>
             <li class="breadcrumb-item active">Carte</li>
           </ul>
         </div>
@@ -135,7 +135,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-6"> Employeur :</label>
+                      <label class="col-sm-6">Employeur :</label>
                       <div class="col-sm-6">
                         ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getEntreprise().getNomEntreprise()}
                       </div>

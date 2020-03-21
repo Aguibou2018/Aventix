@@ -82,22 +82,31 @@
       <section class="statistics" >
         <div class="container-fluid" style="margin-top: 20px;">
           <div class="row d-flex">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               <!-- Income-->
               <div class="card income text-center">
-                <h2 class="display h4">Compensation </h2>
+                <h2 class="display h4">Compensations en attente</h2>
                 <div class="icon"><i class="fa fa-paypal"></i></div>
-                <div class="number">13</div><strong class="text-primary">Virement</strong>
+                <div class="number">${nbCompensation}</div><strong class="text-primary">Virements</strong>
                 <p>En attente </p>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
+              <!-- Income-->
+              <div class="card income text-center">
+                <h2 class="display h4">Montant à percevoir </h2>
+                <div class="icon"><i class="fa fa-eur"></i></div>
+                <div class="number">${montantAPercevoir}</div><strong class="text-primary">Euros</strong>
+                <p>En attente </p>
+              </div>
+            </div>
+            <div class="col-lg-4">
               <!-- Monthly Usage-->
               <div class="card income text-center">
-                <h2 class="display h4">Transaction</h2>
+                <h2 class="display h4">Transaction compensées</h2>
                 <div class="icon"><i class="fa fa-credit-card"></i></div>
-                <div class="number">180</div><strong class="text-primary">Paiement </strong>
-                <p>en attente et déjà effectuée </p>
+                <div class="number">${transactionsCompensees}</div><strong class="text-primary">Transactions </strong>
+                <p>Compensées </p>
               </div>
             </div>
         </div>

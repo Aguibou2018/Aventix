@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -122,7 +124,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                        ${http}
+                      <c:forEach items="${transactions}" var="transaction">
+                          <tr>
+                              <td>${transaction.getId()}</td>
+                              <td>${transaction.getIdCommercant()}</td>
+                              <td>${transaction.getMontant()}</td>
+                              <td>${transaction.getDate()}</td>
+                          </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
               </div>

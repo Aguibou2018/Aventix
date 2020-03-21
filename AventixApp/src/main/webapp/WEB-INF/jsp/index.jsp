@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Aventix Acceuil</title>
+  <title>Aventix Accueil</title>
 
   <!-- Font Awesome Icons -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,10 +84,9 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Nous avons ce qu'il vous faut!</h2>
+          <h2 class="text-white mt-0">Nous avons ce qu'il vous faut !</h2>
           <hr class="divider light my-4">
-          <p class="text-white-50 mb-4"> Nous proposons nos titres restaurants au format carte, plus pratique et plus Ã©cologique !! Le titre-restaurant Aventix simplifie le quotidien de tous : entreprises, employÃ©s, commerÃ§ants, rejoignez-nous et savourez vos repas grÃ¢ce Ã  Aventix!</p>
-          
+          <p class="text-white-50 mb-4"> Nous proposons nos titres restaurants au format carte, plus pratique et plus écologique !! Le titre-restaurant Aventix simplifie le quotidien de tous : entreprises, employés, commerçants, rejoignez-nous et savourez vos repas grâce à Aventix !</p>
         </div>
       </div>
     </div>
@@ -109,8 +108,8 @@
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2">EmployÃ©s</h3>
-            <p class="text-muted mb-0">+ de pouvoir dâ€™achat et moins dâ€™impÃ´ts !</p>
+            <h3 class="h4 mb-2">Employés</h3>
+            <p class="text-muted mb-0">+ de pouvoir d'achat et moins d'impôts !</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
@@ -120,7 +119,6 @@
             <p class="text-muted mb-0">Attirez + de clients en acceptant les titres-restaurant Aventix !</p>
           </div>
         </div>
-       
       </div>
     </div>
   </section>
@@ -132,79 +130,31 @@
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
             <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
           </a>
         </div>
       </div>
@@ -214,7 +164,7 @@
   <!-- Call to Action Section -->
   <section class="page-section bg-dark text-white">
     <div class="container text-center">
-      <h2 class="mb-4">Comment nous rejoindre?</h2>
+      <h2 class="mb-4">Comment nous rejoindre ?</h2>
       <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Cliquez ici maintenant!</a>
     </div>
   </section>
@@ -227,14 +177,14 @@
           <h2 class="mt-0">Contactez nous !</h2>
           <hr class="divider my-4">
           <p class="text-muted mb-5">Contacter un conseiller commercial ou notre service clients <br/>
-		  De 8:30 Ã  18:30 du lundi au vendredi</p>
+		  De 8:30 à  18:30 du lundi au vendredi</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
           <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
           <div>0 824 21 22 23 <br/>
-          Service 0.12â‚¬/appel + prix appel
+          Service 0.12e/appel + prix appel
           </div>
         </div>
         <div class="col-lg-4 mr-auto text-center">
@@ -249,7 +199,7 @@
   <!-- Footer -->
   <footer class="bg-light py-5">
     <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2020 - Soft Design du MSIF d'INSA Lyon </div>
+      <div class="small text-center text-muted">Copyright &copy; 2020 - Soft Design du MSIF INSA Lyon </div>
     </div>
   </footer>
 

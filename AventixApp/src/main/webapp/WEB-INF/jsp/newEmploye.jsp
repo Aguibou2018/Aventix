@@ -132,36 +132,25 @@
                     <div class="form-group row">
                       <label class="col-sm-2">Nom </label>
                       <div class="col-sm-10">
-                        <form:input path="nom" id="nom" name="nom" type="text" placeholder="Nom" class="form-control form-control-success"/><small class="form-text">Exemple : KOMLAN</small>
+                        <form:input path="nom" id="nom" name="nom" type="text" placeholder="Nom" class="form-control form-control-success" required="required"/><small class="form-text">Exemple : KOMLAN</small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2">Prenom </label>
                       <div class="col-sm-10">
-                        <form:input path="prenom" id="prenom" name="prenom" type="text" placeholder="prenom" class="form-control form-control-success"/><small class="form-text">Exemple : Nina</small>
+                        <form:input path="prenom" id="prenom" name="prenom" type="text" placeholder="prenom" class="form-control form-control-success" required="required"/><small class="form-text">Exemple : Nina</small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2">Adresse </label>
                       <div class="col-sm-10">
-                        <form:input path="adresse" id="adresse" name="adresse" type="text" placeholder="adresse" class="form-control form-control-success"/><small class="form-text"> Exemple : 20 avenue Albert Einstein </small>
+                        <form:input path="adresse" id="adresse" name="adresse" type="text" placeholder="adresse" class="form-control form-control-success" required="required"/><small class="form-text"> Exemple : 20 avenue Albert Einstein </small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2">Email</label>
                       <div class="col-sm-10">
-                        <form:input path="email" id="email" name="email" type="email" placeholder="Adresse email" class="form-control " /><small class="form-text">Exemple : ninakomlan@gmail.com</small>
-                      </div>
-                    </div>
-                     <div class="form-group row">
-                      <label class="col-sm-2 form-control-label">Carte</label>
-                      <div class="col-sm-10 mb-3">
-                        <select name="account" class="form-control">
-                          <option>carte 1</option>
-                          <option>carte 2</option>
-                          <option>carte 3</option>
-                          <option>carte 4</option>
-                        </select><small class="form-text">Associez une carte à l'employé</small>
+                        <form:input path="email" id="email" name="email" type="email" placeholder="Adresse email" class="form-control" required="required" /><small class="form-text">Exemple : ninakomlan@gmail.com</small>
                       </div>
                     </div>
                     <div class="form-group row">       

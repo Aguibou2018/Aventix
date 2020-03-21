@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -124,36 +126,21 @@
                     <tr>
                       <th>id commande</th>
                       <th>Nombre de carte</th>
-                      <th>date de commande</th>
+                      <th>Date de commande</th>
+                      <th>Commentaires</th>
                       <th></th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>300</td>
-                      <td>10/10/2020</td>
-                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>300</td>
-                      <td>10/10/2020</td>
-                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>300</td>
-                      <td>10/10/2020</td>
-                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">#12552</a></td>
-                      <td>300</td>
-                      <td>10/10/2020</td>
-                      <td><a href="voirCommande.html?id=idcommande" class="btn btn-success btn-sm fa-2" title="voir"><i class="fa fa-eye"> </i></a></td>
-                    </tr>
+                    <c:forEach items="${commandes}" var="commande">
+                          <tr>
+                              <td>${commande.getId()}</td>
+                              <td>${commande.getNbCartes()}</td>
+                              <td>${commande.getDateCommande()}</td>
+                              <td>${commande.getCommentaires()}</td>
+                          </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
               </div>

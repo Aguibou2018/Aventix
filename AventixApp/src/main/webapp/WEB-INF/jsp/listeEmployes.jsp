@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -123,8 +125,8 @@
                 <table id="datatable1" style="width: 100%;" class="table">
                   <thead>
                     <tr>
-                      <th>Nom</th>
                       <th>Prenom</th>
+                      <th>Nom</th>
                       <th>Email</th>
                       <th>Adresse</th>
                       <th>Carte</th>
@@ -133,42 +135,17 @@
                     </tr>
                  </thead>
                   <tbody>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">KOMLAN</a></td>
-                      <td>Nina</td>
-                      <td>ninakomlan@gmail.com</td>
-                      <td>zendxzeijol</td>
-                      <td>#25252</td>
-                      <td><a href="ModifierEmploye.html?id=idemployé" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
-                      <td><a href="#supprimerEmploye.html?id=idemployé" class="btn btn-danger btn-sm fa-2" title="supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
-                    </tr>
-                    <tr>
-                      <td><a href="javascript:void(0)" class="text-muted">KOMLAN</a></td>
-                      <td>Nina</td>
-                      <td>ninakomlan@gmail.com</td>
-                      <td>zendxzeijol</td>
-                      <td>#25252</td>
-                      <td><a href="ModifierEmploye.html?id=idemployé" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
-                      <td><a href="#supprimerEmploye.html?id=idemployé" class="btn btn-danger btn-sm fa-2" title="supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
-                    </tr>
-                    <tr>
-                     <td><a href="javascript:void(0)" class="text-muted">pkdjjoaOMLAN</a></td>
-                      <td>Ninfcra</td>
-                      <td>ninakomlan@gmail.com</td>
-                      <td>zendxzeijol</td>
-                      <td>#25252</td>
-                      <td><a href="ModifierEmploye.html?id=idemployé" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
-                      <td><a href="#supprimerEmploye.html?id=idemployé" class="btn btn-danger btn-sm fa-2" title="supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
-                    </tr>
-                    <tr>
-                     <td><a href="javascript:void(0)" class="text-muted">KOMLAN</a></td>
-                      <td>Nrfrina</td>
-                      <td>ncinakomlan@gmail.com</td>
-                      <td>zendxzeijol</td>
-                      <td>#254252</td>
-                      <td><a href="ModifierEmploye.html?id=idemployé" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
-                      <td><a href="#supprimerEmploye.html?id=idemployé" class="btn btn-danger btn-sm fa-2" title="supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
-                    </tr>
+                      <c:forEach items="${employes}" var="employe">
+                          <tr>
+                              <td>${employe.getPrenom()}</td>
+                              <td>${employe.getNom()}</td>
+                              <td>${employe.getEmail()}</td>
+                              <td>${employe.getAdresse()}</td>
+                              <td>${employe.getCarte().getId()}</td>
+                              <td><a href="modifierEmploye?id=${employe.getId()}" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
+                              <td><a href="#supprimerEmploye?id=${employe.getId()}" class="btn btn-danger btn-sm fa-2" title="Supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
+                          </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
               </div>
@@ -208,7 +185,7 @@
     <script src="js/front.js"></script>
       <script type="text/javascript">
       function Supprimer(name, url) {
-        if (confirm("Voulez vous vraiment supprimer " +name+ " ?")) {
+        if (confirm("Voulez vous vraiment supprimer " + ${employe.getPrenom()} + ${employe.getNom()} + " ?")) {
           location.replace(url);
         }
       }
