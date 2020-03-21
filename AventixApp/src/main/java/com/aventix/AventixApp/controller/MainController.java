@@ -61,6 +61,8 @@ public class MainController {
         e2.affecterCarte(c2);
         c2.setValidite(false);
         services.miseAJourCarte(c2);
+        c1.recharger(100);
+        c2.recharger(120);
         Transa t1 = new Transa(c2.getId(), c3.getId(), 13);
         Transa t2 = new Transa(c1.getId(), c3.getId(), 11);
         services.referencerTransa(t1);

@@ -97,11 +97,15 @@ public class Carte implements Serializable {
 /*-----------------------------------Others-----------------------------------*/
     
     public void recharger(int montant) {
+        ServicesImpl services = new ServicesImpl();
         this.solde += montant;
+        services.miseAJourCarte(this);
     }
     
     public void changerMontantMaxJournalier(int montant) {
+        ServicesImpl services = new ServicesImpl();
         this.setMontantMaxJournalier(montant);
+        services.miseAJourCarte(this);
     }
     
     //Affecter l'employe à la carte

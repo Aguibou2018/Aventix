@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix Dashboard by SoftDesign</title>
+    <title>Aventix - Contact</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -37,19 +37,19 @@
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <!-- User Info-->
           <div class="sidenav-header-inner text-center"><a href="/pages-profile"><img src="img/avatar-1.png" alt="Entreprise" class="img-fluid rounded-circle"></a>
-            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant()}</h2><span>Commercant</span>
+            <h2 class="h5">${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant()}</h2><span>Commerçant</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexCommercant" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexCommercant" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant().charAt(0)}${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant().charAt(1)}${sessionScope['scopedTarget.sessionBeanCommercant'].commercant.getNomCommercant().charAt(2)}</a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexCommercant"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="/indexCommercant"> <i class="icon-home"></i>Accueil</a></li>
             <li><a href="/listeTransactionsCommercant"><i class="fa fa-credit-card"></i>Liste des transactions</a></li>
-            <li class="active"><a href="/contactCommercant"> <i class="fa fa-phone"></i>Contact </a> </li>
-            <li><a href="/faqCommercant"><i class="fa fa-question-circle"></i>Faq </a></li>
+            <li class="active"><a href="/contactCommercant"> <i class="fa fa-phone"></i>Contact</a> </li>
+            <li><a href="/faqCommercant"><i class="fa fa-question-circle"></i>FAQ</a></li>
           </ul>
         </div>
       </div>
@@ -61,16 +61,16 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexCommercant" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Aventix</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Déconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -80,8 +80,8 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/indexCommercant">Acceuil</a></li>
-            <li class="breadcrumb-item active"> Contact </li>
+            <li class="breadcrumb-item"><a href="/indexCommercant">Accueil</a></li>
+            <li class="breadcrumb-item active">Contact</li>
           </ul>
         </div>
       </div>
@@ -92,7 +92,7 @@
                 <div class="col-12">
                   <div class="wrapper count-title d-flex">
                     <div class="icon"><i class="fa fa-phone"></i></div>
-                    <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact </span>
+                    <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact</span>
                     </div>
                   </div>
                 </div>
@@ -108,10 +108,10 @@
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-1.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                       <h5 class="card-text mb-0">Audrey Laboye</h5>
-                      <p class="card-text text-uppercase">Service Commercial Aventix</p>
+                      <p class="card-text text-uppercase">Responsable Commerciale</p>
                       <p class="card-text">
                          
-                        margretcote@zilidium.com<br><abbr title="Phone">P:  </abbr>+1 (893) 532-2218
+                        audreylaboye@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+33 4 84 62 35 15
                       </p>
                     </div>
                   </div>
@@ -124,10 +124,10 @@
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-2.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                       <h5 class="card-text mb-0">Olivier Cinquin</h5>
-                      <p class="card-text text-uppercase">Service Admin Aventix</p>
+                      <p class="card-text text-uppercase">Responsable développement</p>
                       <p class="card-text">
                          
-                        rachelvinson@chorizon.com<br><abbr title="Phone">P:  </abbr>+1 (891) 494-2060
+                        oliviercinquin@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+4 75 61 34 25
                       </p>
                     </div>
                   </div>
@@ -140,10 +140,10 @@
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-3.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                       <h5 class="card-text mb-0">Gabrielle Aguirre</h5>
-                      <p class="card-text text-uppercase">Service Facturation</p>
+                      <p class="card-text text-uppercase">Responsable clientèle</p>
                       <p class="card-text">
                          
-                        gabrielleaguirre@comverges.com<br><abbr title="Phone">P:  </abbr>+1 (805) 459-3869
+                        gabrielleaguirre@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+4 76 25 36 87
                       </p>
                     </div>
                   </div>

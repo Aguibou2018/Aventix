@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix Dashboard by SoftDesign</title>
+    <title>Aventix - Contact</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -40,28 +40,28 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise()}</h2><span>Entreprise</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEntreprise" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEntreprise" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise().charAt(0)}${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise().charAt(1)}${sessionScope['scopedTarget.sessionBeanEntreprise'].entreprise.getNomEntreprise().charAt(2)}</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEntreprise"> <i class="icon-home"></i>Acceuil </a></li>
-              <li ><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande </a>
+            <li><a href="/indexEntreprise"> <i class="icon-home"></i>Accueil</a></li>
+              <li ><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande</a>
               <ul id="commande" class="collapse list-unstyled ">
-                <li><a href="/newCommande">Nouvelle Commande</a></li>
-                <li><a href="/listeCommandes">Liste des Commandes</a></li>
+                <li><a href="/newCommande">Nouvelle commande</a></li>
+                <li><a href="/listeCommandes">Liste des commandes</a></li>
               </ul>
             </li>
-          <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employe </a>
+          <li><a href="#employe" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user-circle-o"></i>Employé</a>
               <ul id="employe" class="collapse list-unstyled">
-                <li><a href="/newEmploye">Nouvel employé </a></li>
-                <li><a href="/listeEmployes">Liste des employés </a></li>
+                <li><a href="/newEmploye">Nouvel employé</a></li>
+                <li><a href="/listeEmployes">Liste des employés</a></li>
               </ul>
             </li>
             <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
-            <li  class="active"><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact </a> </li>
-            <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>Faq </a></li>
+            <li  class="active"><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact</a> </li>
+            <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>FAQ</a></li>
         </div>
       </div>
     </nav>
@@ -72,16 +72,16 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEntreprise" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Aventix</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Déconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -91,7 +91,7 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/indexEntreprise">Acceuil</a></li>
+            <li class="breadcrumb-item"><a href="/indexEntreprise">Accueil</a></li>
             <li class="breadcrumb-item active"> Contact </li>
           </ul>
         </div>
@@ -119,10 +119,10 @@
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-1.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                       <h5 class="card-text mb-0">Margret Cote</h5>
-                      <p class="card-text text-uppercase">Zilidium</p>
+                      <p class="card-text text-uppercase">Responsable commerciale</p>
                       <p class="card-text">
                          
-                        margretcote@zilidium.com<br><abbr title="Phone">P:  </abbr>+1 (893) 532-2218
+                        margretcote@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+33 4 54 18 96 49 
                       </p>
                     </div>
                   </div>
@@ -134,11 +134,11 @@
                 <div class="card-body">
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-2.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
-                      <h5 class="card-text mb-0">Rachel Vinson</h5>
-                      <p class="card-text text-uppercase">Chorizon</p>
+                      <h5 class="card-text mb-0">Morty McFly</h5>
+                      <p class="card-text text-uppercase">Responsable développement</p>
                       <p class="card-text">
                          
-                        rachelvinson@chorizon.com<br><abbr title="Phone">P:  </abbr>+1 (891) 494-2060
+                        martymcfly@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+33 4 19 27 84 10
                       </p>
                     </div>
                   </div>
@@ -151,10 +151,10 @@
                   <div class="media align-items-center"><span style="background-image: url(img/avatar-3.jpg)" class="avatar avatar-xl mr-3"></span>
                     <div class="media-body overflow-hidden">
                       <h5 class="card-text mb-0">Gabrielle Aguirre</h5>
-                      <p class="card-text text-uppercase">Comverges</p>
+                      <p class="card-text text-uppercase">Responsable Clientèle</p>
                       <p class="card-text">
                          
-                        gabrielleaguirre@comverges.com<br><abbr title="Phone">P:  </abbr>+1 (805) 459-3869
+                        gabrielleaguirre@aventix.com<br><abbr title="Téléphone">Tel :  </abbr>+33 4 91 75 65 42
                       </p>
                     </div>
                   </div>

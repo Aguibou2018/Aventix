@@ -52,11 +52,15 @@ public class Transa implements Serializable {
 //Constructeur par valeurs
     
     public Transa(Long idCarte, Long idCommercant, float montant) {
+        ServicesImpl services = new ServicesImpl();
         this.idCarte = idCarte;
         this.idCommercant = idCommercant;
         this.dateTransa = new Date();
         this.montant = montant;
         this.statut = false;
+        Carte carte = services.findCarteById(idCarte);
+        carte.setSolde(carte.getSolde()-montant);
+        services.miseAJourCarte(carte);
     }
     
 /*-----------------------------FIN CONSTRUCTEURS------------------------------*/

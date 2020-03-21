@@ -3,7 +3,7 @@
   <head>
    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix Dashboard by SoftDesign</title>
+    <title>Aventix - FAQ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -40,21 +40,21 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom().charAt(0)}</strong><strong class="text-primary">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom().charAt(0)}</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="/indexEmploye"> <i class="icon-home"></i>Accueil</a></li>
             <li><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a>
+            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des transactions</a>
             </li>
             <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact</a> </li>
 
-            <li  class="active"><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a></li>  
+            <li  class="active"><a href="/faq"><i class="fa fa-question-circle"></i>FAQ</a></li>  
         </div>
         
       </div>
@@ -66,16 +66,16 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEmploye" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Aventix</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Déconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -86,8 +86,8 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/indexEmploye">Acceuil</a></li>
-            <li class="breadcrumb-item active">faq       </li>
+            <li class="breadcrumb-item"><a href="/indexEmploye">Accueil</a></li>
+            <li class="breadcrumb-item active">FAQ</li>
           </ul>
         </div>
       </div>
@@ -101,7 +101,7 @@
                     <div class="col-12">
                       <div class="wrapper count-title d-flex">
                         <div class="icon"><i class="fa fa-question-circle"></i></div>
-                        <div class="name"><strong class="text-uppercase">FAQ</strong><span>FAQ et Mention Legale </span>
+                        <div class="name"><strong class="text-uppercase">FAQ</strong>
                         </div>
                       </div>
                     </div>
@@ -118,80 +118,80 @@
                   
 
 
-<p > <strong> Carte Aventix : Ã  combien s'Ã©lÃ¨ve la part salariÃ© ? </strong> </br> 
+<p > <strong> Carte Aventix : A  combien s'élève la part salariale ? </strong> </br> 
 
 
- Lâ€™employeur est exonÃ©rÃ© des charges sociales et fiscales dans la limite de 5,55 â‚¬ (plafond 2020) par salariÃ© et par jour travaillÃ©. Il doit payer 50 Ã  60 % du montant du ticket.</br> 
+ L'employeur est exonéré des charges sociales et fiscales dans la limite de 5,55 euros (plafond 2020) par salarié et par jour travaillé. Il doit payer 50 à 60 % du montant du ticket.</br> 
 
- Le reste sera Ã  la charge du salariÃ©, il devra payer 40 Ã  50 % du montant du ticket.</br> </p>
+ Le reste sera à la charge du salarié, il devra payer 40 à 50 % du montant du ticket.</br> </p>
 
 <p> <strong> La carte Aventix fonctionne-t-elle le soir ? </strong> </br>
 
-Il est tout Ã  fait possible dâ€™utiliser la carte Aventix pour payer un dÃ®ner le soir. A condition que ce soit un soir de semaine compris du lundi au samedi inclus.</br> </p> 
+Il est tout à fait possible d'utiliser la carte Aventix pour payer un dîner le soir. A condition que ce soit un soir de semaine compris du lundi au samedi inclus.</br> </p> 
 
-<p> <strong> Peut-on utiliser la carte Aventix Ã  l'Ã©tranger ? </strong> </br> 
+<p> <strong> Peut-on utiliser la carte Aventix à l'étranger ? </strong> </br> 
 
-Lâ€™utilisation de la carte Aventix Ã  lâ€™Ã©tranger nâ€™est pas possible, dÃ» Ã  la rÃ©glementation en vigueur.</br> </p> 
+L'utilisation de la carte Aventix à l'étranger n'est pas possible, dans la réglementation en vigueur.</br> </p> 
 
 <p> <strong> La carte Aventix est-elle utilisable dans les Dom-Tom ? </strong></br>
 
 La carte Aventix est utilisable partout en France, y compris dans les Dom-Tom.</br> </p> 
 
-<p> <strong> La carte Aventix est-elle utilisable en supermarchÃ© et grande surface ? </strong></br>
+<p> <strong> La carte Aventix est-elle utilisable en supermarché et grande surface ? </strong></br>
 
-Oui la carte Aventix est utilisable en grandes surfaces, supermarchÃ©s et hypermarchÃ©s, selon la liste des produits Ã©ligibles.</br>
+Oui la carte Aventix est utilisable en grandes surfaces, supermarchés et hypermarchés, selon la liste des produits éligibles.</br>
 
-Il suffit de regarder sur votre module de gÃ©olocalisation pour vÃ©rifier quel commerÃ§ant accepte votre carte. </p> 
+Il suffit de regarder sur votre module de géolocalisation pour vérifier quel commerçant accepte votre carte. </p> 
 
-<p> <strong>Carte Aventix : quelles sont les rÃ¨gles d'utilisation ? </strong></br> 
+<p> <strong>Carte Aventix : quelles sont les règles d'utilisation ? </strong></br> 
 
-Il est possible dâ€™utiliser la carte Aventix du lundi au samedi, toute la journÃ©e sans contrainte horaire, dimanche et jour fÃ©riÃ©s sur dÃ©rogation employeur (lâ€™employÃ© travaille ces jours lÃ ).</br> </p> 
+Il est possible d'utiliser la carte Aventix du lundi au samedi, toute la journée sans contrainte horaire, dimanche et jour fériés sur dérogation employeur (l'employé travaille ces jours là).</br> </p> 
 
 <p> <strong> Carte Aventix : y-a-t-il un minimum d'utilisation ? </strong></br>
 
-Un des gros avantages de la carte Aventix câ€™est que le minimum de paiement nâ€™est que de 1 â‚¬ et il est possible de payer au centime prÃ¨s.</br></p> 
+Un des gros avantages de la carte Aventix c'est que le minimum de paiement n'est que de 1 euro et il est possible de payer au centime près.</br></p> 
 
 <p> <strong>Carte Aventix : comment l'utiliser ? </strong></br>
 
-La carte Aventix sâ€™utilise aussi simplement quâ€™une carte bancaire. Le commerÃ§ant lâ€™insÃ¨re dans le TPE pour procÃ©der au paiement. Le paiement sâ€™opÃ¨re au centime prÃ¨s, Ã  partir dâ€™1â‚¬ seulement et autant de fois que vous le souhaitez jusquâ€™Ã  19â‚¬ par jour, dans la limite du solde disponible.</br> </p> 
+La carte Aventix s'utilise aussi simplement qu'une carte bancaire. Le commerçant l'insère dans le TPE pour procéder au paiement. Le paiement s'opère au centime près, à partir d'un euro seulement et autant de fois que vous le souhaitez jusqu'à 19 euros par jour, dans la limite du solde disponible.</br> </p> 
 
-<p> <strong>OÃ¹ dÃ©penser la carte Aventix ? </strong></br>
+<p> <strong>Où dépenser la carte Aventix ? </strong></br>
 
-Pour savoir oÃ¹ dÃ©penser la carte Aventix, il suffit de tÃ©lÃ©charger lâ€™application Aventix Carte Restaurant et dâ€™utiliser le module de gÃ©olocalisation (Ã©galement disponible sur notre site web, dans votre espace dÃ©diÃ©). Votre application vous indiquera les restaurants autour de vous.</br> </p> 
+Pour savoir où dépenser la carte Aventix, il suffit de télécharger l'application Aventix Carte Restaurant et d'utiliser le module de géolocalisation (également disponible sur notre site web, dans votre espace dédié). Votre application vous indiquera les restaurants autour de vous.</br> </p> 
 
-<p> <strong> Les commerÃ§ants doivent-ils accepter la carte Aventix Ã  tout moment de l'annÃ©e ? </strong></br>
+<p> <strong> Les commerçants doivent-ils accepter la carte Aventix à tout moment de l'année ? </strong></br>
 
-La carte Aventix peut Ãªtre utilisÃ©e pour rÃ©gler une addition en semaine, du lundi au samedi, le midi et le soir.
-Elle nâ€™est pas utilisable les dimanches et les jours fÃ©riÃ©s, sauf dÃ©rogation de lâ€™employeur.</br> </p> 
+La carte Aventix peut être utilisée pour régler une addition en semaine, du lundi au samedi, le midi et le soir.
+Elle n'est pas utilisable les dimanches et les jours fériés, sauf dérogation de l'employeur.</br> </p> 
 
-<p> <strong>Quel est le montant maximum quâ€™un bÃ©nÃ©ficiaire peut dÃ©penser pour rÃ©gler une addition avec sa carte Aventix ? </strong></br>
+<p> <strong>Quel est le montant maximum qu'un bénéficiaire peut dépenser pour régler une addition avec sa carte Aventix ? </strong></br>
 
-Un bÃ©nÃ©ficiaire peut dÃ©penser jusquâ€™Ã  19 euros par jour en plusieurs fois.</br> </p> 
+Un bénéficiaire peut dépenser jusqu'à 19 euros par jour en plusieurs fois.</br> </p> 
 
-<p> <strong>Si je perds ma carte Aventix, est-ce que je perds le solde crÃ©ditÃ© ? </strong></br>
+<p> <strong>Si je perds ma carte Aventix, est-ce que je perds le solde crédité ? </strong></br>
 
-Non, vous ne perdez pas le solde de votre carte Aventix. En cas de perte : le solde restant est disponible sur votre compte bÃ©nÃ©ficiaire et sera rÃ©utilisable avec la nouvelle carte. En cas de perte ou de vol, nâ€™hÃ©sitez pas Ã  contacter lâ€™assistance bÃ©nÃ©ficiaire : 00 70 07 00 70.</br> </p> 
+Non, vous ne perdez pas le solde de votre carte Aventix. En cas de perte : le solde restant est disponible sur votre compte bénéficiaire et sera réutilisable avec la nouvelle carte. En cas de perte ou de vol, n'hésitez pas à contacter l'assistance bénéficiaire : 00 70 07 00 70.</br> </p> 
 
-<p> <strong>Qui peut bÃ©nÃ©ficier de la carte Aventix ? </strong></br>
+<p> <strong>Qui peut bénéficier de la carte Aventix ? </strong></br>
 
-Tout collaborateur (salariÃ© du privÃ© ou agent de la fonction publique) liÃ© Ã  un contrat de travail peut bÃ©nÃ©ficier dâ€™une carte Aventix.
-Cependant, lâ€™employeur peut imposer des critÃ¨res dâ€™attribution de la carte Aventix (sous rÃ©serve quâ€™ils ne soient pas discriminatoires envers les bÃ©nÃ©ficiaires).</br> </p> 
+Tout collaborateur (salarié du privé ou agent de la fonction publique) lié à un contrat de travail peut bénéficier d'une carte Aventix.
+Cependant, l'employeur peut imposer des critères d'attribution de la carte Aventix (sous réserve qu'ils ne soient pas discriminatoires envers les bénéficiaires).</br> </p> 
 
-<p> <strong>ChÃ¨que ou carte Aventix : comment gÃ©rer le plafond de 19â‚¬ par jour ? </strong></br>
+<p> <strong>Chèque ou carte Aventix : comment gérer le plafond de 19 euros par jour ? </strong></br>
 
-La carte Aventix est paramÃ©trÃ©e pour ne pas excÃ©der le montant lÃ©gal maximal de 19â‚¬ de dÃ©penses quotidiennes (hors dimanche et jours fÃ©riÃ©s sauf autorisation de lâ€™employeur pour les bÃ©nÃ©ficiaires travaillant ces jours-lÃ ). Cependant, vous pouvez utiliser votre carte Averntix plusieurs fois dans la mÃªme journÃ©e dÃ¨s lors que le cumul de ses dÃ©penses nâ€™excÃ¨de pas 19â‚¬.</br> <p> 
+La carte Aventix est paramétrée pour ne pas excéder le montant légal maximal de 19 euros de dépenses quotidiennes (hors dimanche et jours fériés sauf autorisation de l'employeur pour les bénéficiaires travaillant ces jours-là). Cependant, vous pouvez utiliser votre carte Averntix plusieurs fois dans la même journée dès lors que le cumul de ses dépenses n'excède pas 19 euros.</br> <p> 
 
 <p> <strong> Combien de temps est valable le solde de ma carte Aventix ? </strong></br>
 
-Les crÃ©dits rechargÃ©s sur les cartes Avenitx sont valables du 1er janvier de lâ€™annÃ©e en cours (soit annÃ©e N) jusquâ€™au dernier jour de lâ€™annÃ©e suivante (soit N+1)</br> </p> 
+Les crédits rechargés sur les cartes Aventix sont valables du 1er janvier de l'année en cours (soit année N) jusqu'au dernier jour de l'année suivante (soit N+1)</br> </p> 
 
-<p> <strong>OÃ¹ puis-je utiliser ma carte Aventix ? </strong></br> 
+<p> <strong>Où puis-je utiliser ma carte Aventix ? </strong></br> 
 
-La carte Aventix peut Ãªtre utilisÃ©e dans les restaurants et auprÃ¨s des organismes ou entreprises assimilÃ©s, brasseries, restauration rapide, grandes et moyennes surfaces, mais aussi charcuteries, traiteurs, boulangeries, primeurs, dÃ©taillants en fruits et lÃ©gumes agrÃ©Ã©s par la CNTR (Commission Nationale des Titres-Restaurant).</br>
+La carte Aventix peut être utilisée dans les restaurants et auprès des organismes ou entreprises assimilés, brasseries, restauration rapide, grandes et moyennes surfaces, mais aussi charcuteries, traiteurs, boulangeries, primeurs, détaillants en fruits et légumes agréés par la CNTR (Commission Nationale des Titres-Restaurant).</br>
 </p> 
-<p> Avec la carte Aventix, vous pouvez Ã©galement rÃ©gler en ligne sur les sites de restauration acceptant les titres restaurant.</br> </p> 
+<p> Avec la carte Aventix, vous pouvez également régler en ligne sur les sites de restauration acceptant les titres restaurant.</br> </p> 
 
-<p> A savoir : pour la carte Aventix, il faut que lâ€™affiliÃ© soit Ã©quipÃ© dâ€™un terminal de paiement Ã©lectronique afin de recevoir le paiement dÃ©matÃ©rialisÃ© via la carte restauration.</br>
+<p> A savoir : pour la carte Aventix, il faut que l'affilié soit équipé d'un terminal de paiement électronique afin de recevoir le paiement dématérialisé via la carte restauration.</br>
 </p>
               </div>
             </div>

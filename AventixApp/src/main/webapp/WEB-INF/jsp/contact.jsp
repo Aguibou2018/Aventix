@@ -40,21 +40,21 @@
             <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom().charAt(0)}</strong><strong class="text-primary">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom().charAt(0)}</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="/indexEmploye"> <i class="icon-home"></i>Accueil</a></li>
             <li><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a>
+            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des transactions</a>
             </li>
             <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li  class="active"><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
+            <li  class="active"><a href="/contact"> <i class="fa fa-phone"></i>Contact</a> </li>
 
-            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a></li>  
+            <li><a href="/faq"><i class="fa fa-question-circle"></i>FAQ</a></li>  
         </div>
         
       </div>
@@ -66,16 +66,16 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEmploye" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Aventix</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Déconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -86,8 +86,8 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/index">Acceuil</a></li>
-            <li class="breadcrumb-item active">Maps       </li>
+            <li class="breadcrumb-item"><a href="/index">Accueil</a></li>
+            <li class="breadcrumb-item active">Maps</li>
           </ul>
         </div>
       </div>
@@ -101,7 +101,7 @@
                     <div class="col-12">
                       <div class="wrapper count-title d-flex">
                         <div class="icon"><i class="fa fa-phone"></i></div>
-                        <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact </span>
+                        <div class="name"><strong class="text-uppercase">Contact</strong><span>Aventix Contact</span>
                         </div>
                       </div>
                     </div>
@@ -114,15 +114,15 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                  <h2 class="text-primary" >Contactez nous!</h2>
+                  <h2 class="text-primary" >Contactez nous !</h2>
                   <hr class="divider my-4">
-                  <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                  <p class="text-muted mb-5">Par téléphone ou par mail :</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
                   <i class="fa fa-phone fa-3x text-muted"></i>
-                  <div>+1 (202) 555-0149</div>
+                  <div>+33 4 84 59 72 01</div>
                 </div>
                 <div class="col-lg-4 mr-auto text-center">
                   <i class="fa fa-envelope fa-3x text-muted"></i>

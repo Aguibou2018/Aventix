@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix Dashboard by SoftDesign</title>
+    <title>Aventix - Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -42,21 +42,19 @@
               <h2 class="h5">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom()} ${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom()}</h2><span>Employé</span>
           </div>
           <!-- Small Brand information, appears on minimized sidebar-->
-          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="/indexEmploye" class="brand-small text-center"> <strong>${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getPrenom().charAt(0)}</strong><strong class="text-primary">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getNom().charAt(0)}</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="/indexEmploye"> <i class="icon-home"></i>Acceuil </a></li>
+            <li><a href="/indexEmploye"> <i class="icon-home"></i>Accueil</a></li>
             <li><a href="/card-employe"><i class="fa fa-credit-card"></i>Carte</a></li>
-            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des Transactions </a></li>
+            <li><a href="/listeTransactions"> <i class="icon-check"></i></i>Liste des transactions </a></li>
             <li><a href="/listeRestaurants"> <i class="fa fa-th-list"></i>Liste des restaurants</a>
             <li><a href="/maps-employe"> <i class="fa fa-map-marker"></i>Maps</a></li>
-            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact </a> </li>
-
-            <li><a href="/faq"><i class="fa fa-question-circle"></i>Faq </a>
-            </li>
+            <li><a href="/contact"> <i class="fa fa-phone"></i>Contact</a> </li>
+            <li><a href="/faq"><i class="fa fa-question-circle"></i>FAQ</a></li>
         </div>
         
       </div>
@@ -68,16 +66,16 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="/indexEmploye" class="navbar-brand">
-                  <div class="brand-text d-none d-md-inline-block"><span>Aventix </span><strong class="text-primary">Dashboard</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block"><strong class="text-primary">Aventix</strong></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Francais</span></a>
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Anglais                                                         </span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Deconnexion</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/index" class="nav-link logout"> <span class="d-none d-sm-inline-block">Déconnexion</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -89,40 +87,22 @@
       <section class="statistics" >
         <div class="container-fluid" style="margin-top: 20px;">
           <div class="row d-flex">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <!-- Income-->
               <div class="card income text-center">
+                <strong class="text-primary">Solde journalier</strong>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBeanEmploye'].employe.montantDepenseJournee()}</div>
                 <div class="icon"><i class="fa fa-eur"></i></div>
-                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getMontantMaxJournalier()-sessionScope['scopedTarget.sessionBeanEmploye'].employe.montantDepenseJournee()}</div><strong class="text-primary">Solde</strong>
                 <p>Utilisable ce jour </p>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <!-- Monthly Usage-->
-              <div class="card data-usage">
-                <h2 class="display h4">Solde Carte</h2>
-                <div class="row d-flex align-items-center">
-                  <div class="col-sm-6">
-                    <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
-                  </div>
-                  <div class="col-sm-6"><strong class="text-primary"> </i></strong><small>Plan actuel</small><span>210 euros par mois</span></div>
-                </div>
-                <p>Votre solde carte.</p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <!-- User Activity-->
-              <div class="card user-activity">
-                <h2 class="display h4">Vos Visites</h2>
-                <div class="number">250</div>
-                <h3 class="h4 display"> </h3>
-                <div class="progress">
-                  <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
-                </div>
-                <div class="page-statistics d-flex justify-content-between">
-                  <div class="page-statistics-left"><span> Visite Restaurant </span><strong>230</strong></div>
-                  <div class="page-statistics-right"><span>Nouvelles Visites</span><strong>73.4%</strong></div>
-                </div>
+              <div class="card income text-center">
+                <strong class="text-primary">Solde total</strong>
+                <div class="number">${sessionScope['scopedTarget.sessionBeanEmploye'].employe.getCarte().getSolde()}</div>
+                <div class="icon"><i class="fa fa-eur"></i></div>
+                <p>Votre solde carte</p>
               </div>
             </div>
           </div>
@@ -137,18 +117,18 @@
 		       <div class="col-md-4">
 		          <div class="card card-inverse text-white"><img src="img/foods-2.jpg" alt="Card image" class="card-img img-fluid">
 		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+		              <h5 class="card-title text-white">Carte restaurant</h5>
+		              <p class="card-text">Aventix toujours à votre service</p>
+		              <p class="card-text"><small>Mangez 5 fruits et légumes par jour</small></p>
 		            </div>
 		          </div>
 		        </div>
 		        <div class="col-md-4">
 		          <div class="card card-inverse text-white"><img src="img/foods-3.jpg" alt="Card image" class="card-img img-fluid">
 		            <div class="card-img-overlay card-img-overlay-opacity">
-		              <h5 class="card-title text-white"> ticket restaurant</h5>
-		              <p class="card-text">Aventix.. toujours à votre service.</p>
-		              <p class="card-text"><small>Manger 5 fruits et legumes par jours</small></p>
+		              <h5 class="card-title text-white">Carte restaurant</h5>
+		              <p class="card-text">Aventix toujours à votre service</p>
+		              <p class="card-text"><small>Mangez 5 fruits et legumes par jour</small></p>
 		            </div>
 		          </div>
 		        </div>
@@ -182,7 +162,6 @@
     <!-- Notifications-->
     <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
     <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>
