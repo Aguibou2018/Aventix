@@ -12,8 +12,8 @@ public class AventixAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AventixAppApplication.class, args);
-                //Timer timer = new Timer();
-                //timer.scheduleAtFixedRate(new ServiceCompensation(), 20000, 86400000);
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(new ServiceCompensation(), 120000, 86400000);
 	}
 
 }

@@ -11,12 +11,14 @@ import com.aventix.AventixApp.modele.Commande;
 import com.aventix.AventixApp.modele.Commercant;
 import com.aventix.AventixApp.modele.Employe;
 import com.aventix.AventixApp.modele.Entreprise;
+import com.aventix.AventixApp.modele.ServiceFacturation;
 import com.aventix.AventixApp.modele.Transa;
 import com.aventix.AventixApp.services.ServicesImpl;
 import com.aventix.AventixApp.session.SessionBeanCommercant;
 import com.aventix.AventixApp.session.SessionBeanEmploye;
 import com.aventix.AventixApp.session.SessionBeanEntreprise;
 import java.util.List;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,31 +44,64 @@ public class MainController {
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String home(Model model) {
         
-        Entreprise entreprise = new Entreprise("Sodebo", "sodebo@miam.fr", "guest15", "20 avenue Albert Einstein", "0405070908");
-        services.referencerEntreprise(entreprise);
+        //Les entreprises
+        Entreprise entreprise1 = new Entreprise("SNCF", "lestrainsarriventparfoisalheure@sncf.fr", "sncf15", "Gare de Lyon - Paris", "0105070908");
+        Entreprise entreprise2 = new Entreprise("Airbus", "lesavionspolluent@airbus.fr", "airbus15", "Aéroport Saint-Exupéry - Lyon", "0405070908");
+        Entreprise entreprise3 = new Entreprise("TCL", "lesbuscestcool@tcl.fr", "tcl15", "Gare routière Part-Dieu - Lyon", "0406070908");
+        services.referencerEntreprise(entreprise1);
+        services.referencerEntreprise(entreprise2);
+        services.referencerEntreprise(entreprise3);
         
-        Commercant c3 = new Commercant("Paul", "paul@pain.fr", "briochedoree", "20 avenue albert einstein", "0403050784", "1234 5678 9101 1121");
-        services.referencerCommercant(c3);
+        //Les commercants
+        Commercant commercant1 = new Commercant("Paul", "paul@pain.fr", "paul15", "20 avenue des Brioches Dorées - Lyon", "0403050784", "1234 5678 9101 1121");
+        Commercant commercant2 = new Commercant("Carloni", "carloni@pizza.fr", "carloni15", "17 allée des Pepperonis - Villeurbanne", "0407050784", "1734 5678 9101 1121");
+        Commercant commercant3 = new Commercant("Kebabylone", "kebabylone@salade-tomate-oignons.fr", "kebabylone15", "2 rue des Maux de Bide - Lyon", "0407016784", "1734 8613 9101 1121");
+        services.referencerCommercant(commercant1);
+        services.referencerCommercant(commercant2);
+        services.referencerCommercant(commercant3);
         
-        Employe e1 =  new Employe("Vivian", "Wong", "Villeurbanne", "vivian.wong@insa-lyon.fr", entreprise);
-        services.referencerEmploye(e1);
-        Carte c1 = new Carte(19);
-        services.referencerCarte(c1);
-        e1.affecterCarte(c1);
+        //Les employés
+        Employe employe1 =  new Employe("Vivian", "Wong", "Caluire-et-Cuire", "vivian.wong@insa-lyon.fr", entreprise2);
+        Employe employe2 =  new Employe("Olivier", "Cinquin", "Villeurbanne", "olivier.cinquin@insa-lyon.fr", entreprise3);
+        Employe employe3 =  new Employe("Pierre", "Chalmel", "Paris", "pierre.chalmel@insa-lyon.fr", entreprise1);
+        services.referencerEmploye(employe1);
+        services.referencerEmploye(employe2);
+        services.referencerEmploye(employe3);
         
-        Employe e2 =  new Employe("Olivier", "Cinquin", "Villeurbanne", "olivier.cinquin@insa-lyon.fr", entreprise);
-        services.referencerEmploye(e2);
-        Carte c2 = new Carte(29);
-        services.referencerCarte(c2);
-        e2.affecterCarte(c2);
-        c2.setValidite(false);
-        services.miseAJourCarte(c2);
-        c1.recharger(100);
-        c2.recharger(120);
-        Transa t1 = new Transa(c2.getId(), c3.getId(), 13);
-        Transa t2 = new Transa(c1.getId(), c3.getId(), 11);
-        services.referencerTransa(t1);
-        services.referencerTransa(t2);
+        //Les cartes
+        Carte carte1 = new Carte(19);
+        Carte carte2 = new Carte(12);
+        Carte carte3 = new Carte(23);
+        services.referencerCarte(carte1);
+        services.referencerCarte(carte2);
+        services.referencerCarte(carte3);
+        employe1.affecterCarte(carte1);
+        employe2.affecterCarte(carte3);
+        employe3.affecterCarte(carte2);
+        
+        carte2.setValidite(false);
+        services.miseAJourCarte(carte2);
+        
+        carte1.recharger(100);
+        carte2.recharger(50);
+        carte3.recharger(120);
+        
+        //Les transactions
+        Transa transaction1 = new Transa(carte2.getId(), commercant3.getId(), 6);
+        Transa transaction2 = new Transa(carte1.getId(), commercant1.getId(), 12);
+        Transa transaction3 = new Transa(carte3.getId(), commercant2.getId(), 13);
+        services.referencerTransa(transaction1);
+        services.referencerTransa(transaction2);
+        services.referencerTransa(transaction3);
+        
+        //Les commandes
+        Commande commande1 = new Commande(entreprise1, 140, "A l'heure svp !");
+        Commande commande2 = new Commande(entreprise2, 230, "En vitesse svp !");
+        Commande commande3 = new Commande(entreprise3, 85, "Sans polluer svp !");
+        services.referencerCommande(commande1);
+        services.referencerCommande(commande2);
+        services.referencerCommande(commande3);
+        
         return "index";
     }
     
@@ -252,7 +287,7 @@ public class MainController {
     }
     
     @RequestMapping(value="/newEmploye", method = RequestMethod.POST)
-    public String newEmploye(Model model, @Valid Employe employe) {    	
+    public String newEmploye(Model model, @Valid Employe employe) throws MessagingException {    	
         Employe emp = new Employe(
             employe.getPrenom(),
             employe.getNom(),
@@ -268,13 +303,39 @@ public class MainController {
     }
     
     @RequestMapping(value="/newCommande", method = RequestMethod.POST)
-    public String newCommande(Model model, @Valid Commande commande) {    	
+    public String newCommande(Model model, @Valid Commande commande) throws MessagingException {    	
         Commande com = new Commande(
             this.sessionBeanEntreprise.getEntreprise(),
             commande.getNbCartes(),
             commande.getCommentaires()
         );
         services.referencerCommande(com);
+        ServiceFacturation sF = new ServiceFacturation();
+        services.referencerServiceFacturation(sF);
+        sF.envoyerFacture(com);
         return "indexEntreprise";
+    }
+    
+    @RequestMapping(value="/modifierEmploye", method = RequestMethod.GET)
+    public String modifierEmploye(Model model, @RequestParam(value="idEmploye") Long idEmploye ) {
+        Employe employe = services.findEmployeById(idEmploye);
+        model.addAttribute("idEmploye", idEmploye); //permet d'envoyer des variables dans jsp
+        model.addAttribute("employe", employe);
+        return "modifierEmploye";
+    }
+    
+    @RequestMapping(value="/modifierEmploye", method = RequestMethod.POST)
+    public String modifierEmploye(Model model, Model model2, @Valid Employe employe) {    	
+        Employe emp = services.findEmployeByNom(employe.getNom()).get(0);
+        emp.setPrenom(employe.getPrenom());
+        emp.setNom(employe.getNom());
+        emp.setAdresse(employe.getAdresse());
+        emp.setEmail(employe.getEmail());
+        services.miseAJourEmploye(emp);
+        
+        List<Employe> employes = services.findEmployeByIdEntreprise(sessionBeanEntreprise.getEntreprise().getId());
+        model2.addAttribute("employes", employes);
+        
+        return this.listeEmployeEntreprise(model2);
     }
 }

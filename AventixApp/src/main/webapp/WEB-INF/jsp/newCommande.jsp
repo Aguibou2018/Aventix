@@ -223,7 +223,6 @@
     <!-- Notifications-->
     <script src="vendor/messenger-hubspot/build/js/messenger.min.js">   </script>
     <script src="vendor/messenger-hubspot/build/js/messenger-theme-flat.js">       </script>
-    <script src="js/home-premium.js"> </script>
     <!-- Main File-->
     <script src="js/front.js"></script>
   </body>

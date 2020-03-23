@@ -1,11 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aventix - Liste des employés</title>
+    <title>Aventix - Modifier employé</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -49,7 +51,7 @@
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="/indexEntreprise"> <i class="icon-home"></i>Accueil</a></li>
-              <li ><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i> Commande</a>
+              <li ><a href="#commande" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i>Commande</a>
               <ul id="commande" class="collapse list-unstyled ">
                 <li><a href="/newCommande">Nouvelle commande</a></li>
                 <li><a href="/listeCommandes">Liste des commandes</a></li>
@@ -61,7 +63,6 @@
                 <li class="active"><a href="/listeEmployes">Liste des employés</a></li>
               </ul>
             </li>
-            
             <li><a href="/listeCartes"> <i class="fa fa-address-card-o"></i>Liste des cartes</a></li>
             <li><a href="/contactEntreprise"> <i class="fa fa-phone"></i>Contact</a> </li>
             <li><a href="/faqEntreprise"><i class="fa fa-question-circle"></i>FAQ</a></li>
@@ -81,7 +82,7 @@
                 <!-- Languages dropdown    -->
                 <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/FR.png" alt="French"><span class="d-none d-sm-inline-block">Français</span></a>
                   <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/GB.png" alt="French" class="mr-2"><span>Français</span></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="French" class="mr-2"><span>Français</span></a></li>
                   </ul>
                 </li>
                 <!-- Log out-->
@@ -91,63 +92,77 @@
           </div>
         </nav>
       </header>
-       <!-- Breadcrumb-->
+      <!-- Breadcrumb-->
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="/indexEntreprise">Accueil</a></li>
-            <li class="breadcrumb-item active">Employés</li>
+            <li class="breadcrumb-item"><a href="/listeEmployes">Employés</a></li>
+            <li class="breadcrumb-item active">Modifier employé</li>
           </ul>
         </div>
       </div>
-      
-      <section>
+
+      <!-- Count item widget-->
+      <section class="dashboard-counts section-padding">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-2 col-md-4 col-6">
+              <div class="wrapper count-title d-flex">
+                <div class="icon"><i class="fa fa-pencil-square-o"></i></div>
+                <div class="name"><strong class="text-uppercase">Employé</strong><span>Modifier employé</span>
+                </div>
+              </div>
+            </div>
+        </div>
+       </div>
+      </section>
+
+ <section class="forms">
         <div class="container-fluid">
           <!-- Page Header-->
-              <section class="dashboard-counts section-padding">
-                <div class="container-fluid">
-                  <!-- Count item widget-->
-                    <div class="col-12">
-                      <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="fa fa-th-list"></i></div>
-                        <div class="name"><strong class="text-uppercase">Employés</strong><span>Liste des Employés </span>
-                        </div>
+            <div class="row">
+            <div class="col-lg-10">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>Modifier votre employé</h4>
+                </div>
+                <div class="card-body">
+                  <p>Tous les champs sont obligatoires.</p>
+                  <form:form action="/modifierEmploye" modelAttribute="employe" class="form-horizontal">
+                    <div class="form-group row">
+                      <label class="col-sm-2">Prenom </label>
+                      <div class="col-sm-10">
+                        <form:input path="prenom" id="prenom" type="text" placeholder="prenom" class="form-control form-control-success" value="${employe.getPrenom()}"/><small class="form-text">Exemple : Nina</small>
                       </div>
                     </div>
-                </div>
-           </section>
-          <div class="card">
-            <div class="card-body">
-              <div class="table-responsive">
-                <h1> <i class="fa fa-user"></i>Liste des Employés
-                  <a class="btn btn-outline-success" href="/newEmploye"><i class="fa fa-user-plus"></i>&nbsp;Nouvel Employé</a>
-                </h1>
-                <table id="datatable1" style="width: 100%;" class="table">
-                  <thead>
-                    <tr>
-                      <th>Prenom</th>
-                      <th>Nom</th>
-                      <th>Email</th>
-                      <th>Adresse</th>
-                      <th>Numéro carte</th>
-                      <th><i>Modifier</i></th>
-                      <th><i>Supprimer</i></th>
-                    </tr>
-                 </thead>
-                  <tbody>
-                      <c:forEach items="${employes}" var="employe">
-                          <tr>
-                              <td>${employe.getPrenom()}</td>
-                              <td>${employe.getNom()}</td>
-                              <td>${employe.getEmail()}</td>
-                              <td>${employe.getAdresse()}</td>
-                              <td>${employe.getCarte().getId()}</td>
-                              <td><a href="/modifierEmploye?idEmploye=${employe.getId()}" class="btn btn-warning btn-sm fa-2" title="Modifier"><i class="fa fa-pencil-square-o"> </i></a></td>
-                              <td><a href="#supprimerEmploye?idEmploye=${employe.getId()}" class="btn btn-danger btn-sm fa-2" title="Supprimer" onclick="Supprimer('nina',this.href)"> <i class="fa fa-trash-o"> </i></a></td>
-                          </tr>
-                      </c:forEach>
-                  </tbody>
-                </table>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Nom </label>
+                      <div class="col-sm-10">
+                        <form:input path="nom" id="nom" type="text" placeholder="nom" class="form-control form-control-success" value="${employe.getNom()}"/><small class="form-text">Exemple : KOMLAN</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Adresse </label>
+                      <div class="col-sm-10">
+                        <form:input path="adresse" id="adresse" type="text" placeholder="adresse" class="form-control form-control-success" value="${employe.getAdresse()}"/><small class="form-text"> Exemple : 20 avenue Albert Einstein </small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Email</label>
+                      <div class="col-sm-10">
+                        <form:input path="email" id="email" name="email" type="email" placeholder="Adresse email" class="form-control " value="${employe.getEmail()}"/><small class="form-text">Exemple : ninakomlan@gmail.com</small>
+                      </div>
+                    </div>
+                      <div >
+                        <form:input path="id" id="id" type="hidden" value="${employe.getId()}" name="id"/>
+                      </div>
+                    <div class="form-group row">       
+                      <div class="col-sm-10 offset-sm-2">
+                        <input type="submit" value="Modifier" class="btn btn-primary">
+                      </div>
+                    </div>
+                  </form:form>      
               </div>
             </div>
           </div>
@@ -175,20 +190,7 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- Data Tables-->
-    <script src="vendor/datatables.net/js/jquery.dataTables.js"></script>
-    <script src="vendor/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
-    <script src="vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <script src="js/tables-datatable.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
-      <script type="text/javascript">
-      function Supprimer(name, url) {
-        if (confirm("Voulez vous vraiment supprimer " + ${employe.getPrenom()} + ${employe.getNom()} + " ?")) {
-          location.replace(url);
-        }
-      }
-    </script>
-  </body>
+    </body>
 </html>
